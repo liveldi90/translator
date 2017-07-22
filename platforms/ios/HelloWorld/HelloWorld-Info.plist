@@ -54,11 +54,13 @@
     <key>NSLocationWhenInUseUsageDescription</key>
     <string/>
     <key>NSMicrophoneUsageDescription</key>
-    <string/>
+    <string>Request to use Microphone</string>
     <key>NSAppTransportSecurity</key>
     <dict>
       <key>NSAllowsArbitraryLoads</key>
       <true/>
     </dict>
+    <key>NSSpeechRecognitionUsageDescription</key>
+    <string>Request to use Speech Recognition</string>
   </dict>
 </plist>

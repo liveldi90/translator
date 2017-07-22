@@ -282,6 +282,14 @@ module.exports = [
         "clobbers": [
             "window.Media"
         ]
+    },
+    {
+        "id": "cordova-plugin-speechrecognition.SpeechRecognition",
+        "file": "plugins/cordova-plugin-speechrecognition/www/speechRecognition.js",
+        "pluginId": "cordova-plugin-speechrecognition",
+        "merges": [
+            "window.plugins.speechRecognition"
+        ]
     }
 ];
 module.exports.metadata = 
@@ -292,7 +300,9 @@ module.exports.metadata =
     "cordova-plugin-camera": "2.4.1",
     "cordova-plugin-file": "4.3.3",
     "cordova-plugin-media-capture": "1.4.3",
-    "cordova-plugin-media": "3.0.1"
+    "cordova-plugin-media": "3.0.1",
+    "ro.martinescu.audio": "0.1.0",
+    "cordova-plugin-speechrecognition": "1.1.2"
 };
 // BOTTOM OF METADATA
 });

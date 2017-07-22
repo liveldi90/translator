@@ -1,0 +1,51 @@
+{
+  "_from": "git+https://github.com/petrica/wav-recorder.git",
+  "_id": "cordova-wav-recorder@2.0.0",
+  "_inBundle": false,
+  "_integrity": "sha1-kzdPAhQ/7DG/AvyV1tLKRz8BI4g=",
+  "_location": "/cordova-wav-recorder",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "git",
+    "raw": "https://github.com/petrica/wav-recorder.git",
+    "rawSpec": "https://github.com/petrica/wav-recorder.git",
+    "saveSpec": "git+https://github.com/petrica/wav-recorder.git",
+    "fetchSpec": "https://github.com/petrica/wav-recorder.git",
+    "gitCommittish": "master"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "git+https://github.com/petrica/wav-recorder.git#3b17462ce0ed8c991dd5c58a8426a09e8680375a",
+  "_spec": "https://github.com/petrica/wav-recorder.git",
+  "_where": "/Users/liveldi/Documents/mobilization/hello/node_modules",
+  "author": {
+    "name": "Petrica Martinescu",
+    "email": "petrica@martinescu.com"
+  },
+  "bugs": {
+    "url": "https://github.com/petrica/wav-recorder/issues"
+  },
+  "bundleDependencies": false,
+  "cordova": {
+    "id": "ro.martinescu.audio",
+    "platforms": [
+      "android"
+    ]
+  },
+  "deprecated": false,
+  "description": "Advanced Android Recording that provides access to the recorded buffer to the webview.",
+  "homepage": "https://github.com/petrica/wav-recorder#readme",
+  "keywords": [
+    "ecosystem:cordova",
+    "cordova-android"
+  ],
+  "license": "MIT",
+  "name": "cordova-wav-recorder",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/petrica/wav-recorder.git"
+  },
+  "version": "2.0.0"
+}

@@ -31,6 +31,14 @@
                         {
                             "xml": "<feature name=\"Media\"><param name=\"android-package\" value=\"org.apache.cordova.media.AudioHandler\" /></feature>",
                             "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"WAVRecorder\"><param name=\"android-package\" value=\"ro.martinescu.audio.WAVRecorder\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"SpeechRecognition\"><param name=\"android-package\" value=\"com.pbakondy.SpeechRecognition\" /></feature>",
+                            "count": 1
                         }
                     ]
                 }
@@ -40,11 +48,11 @@
                     "/*": [
                         {
                             "xml": "<uses-permission android:name=\"android.permission.WRITE_EXTERNAL_STORAGE\" />",
-                            "count": 4
+                            "count": 5
                         },
                         {
                             "xml": "<uses-permission android:name=\"android.permission.RECORD_AUDIO\" />",
-                            "count": 2
+                            "count": 4
                         },
                         {
                             "xml": "<uses-permission android:name=\"android.permission.RECORD_VIDEO\" />",
@@ -56,11 +64,11 @@
                         },
                         {
                             "xml": "<uses-permission android:name=\"android.permission.MODIFY_AUDIO_SETTINGS\" />",
-                            "count": 1
+                            "count": 2
                         },
                         {
                             "xml": "<uses-permission android:name=\"android.permission.READ_PHONE_STATE\" />",
-                            "count": 1
+                            "count": 2
                         }
                     ],
                     "application": [
@@ -90,6 +98,12 @@
             "PACKAGE_NAME": "com.example.hello"
         },
         "cordova-plugin-media": {
+            "PACKAGE_NAME": "com.example.hello"
+        },
+        "ro.martinescu.audio": {
+            "PACKAGE_NAME": "com.example.hello"
+        },
+        "cordova-plugin-speechrecognition": {
             "PACKAGE_NAME": "com.example.hello"
         }
     },
@@ -383,6 +397,22 @@
             "clobbers": [
                 "window.Media"
             ]
+        },
+        {
+            "id": "ro.martinescu.audio.WAVRecorder",
+            "file": "plugins/ro.martinescu.audio/www/android/wavrecorder.js",
+            "pluginId": "ro.martinescu.audio",
+            "clobbers": [
+                "window.martinescu.Recorder"
+            ]
+        },
+        {
+            "id": "cordova-plugin-speechrecognition.SpeechRecognition",
+            "file": "plugins/cordova-plugin-speechrecognition/www/speechRecognition.js",
+            "pluginId": "cordova-plugin-speechrecognition",
+            "merges": [
+                "window.plugins.speechRecognition"
+            ]
         }
     ],
     "plugin_metadata": {
@@ -391,6 +421,8 @@
         "cordova-plugin-camera": "2.4.1",
         "cordova-plugin-file": "4.3.3",
         "cordova-plugin-media-capture": "1.4.3",
-        "cordova-plugin-media": "3.0.1"
+        "cordova-plugin-media": "3.0.1",
+        "ro.martinescu.audio": "0.1.0",
+        "cordova-plugin-speechrecognition": "1.1.2"
     }
 }

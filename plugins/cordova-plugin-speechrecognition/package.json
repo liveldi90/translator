@@ -1,0 +1,64 @@
+{
+  "_from": "cordova-plugin-speechrecognition",
+  "_id": "cordova-plugin-speechrecognition@1.1.2",
+  "_inBundle": false,
+  "_integrity": "sha1-FFA9rDNOFmpMxLh0eLj/ckN+VO4=",
+  "_location": "/cordova-plugin-speechrecognition",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "cordova-plugin-speechrecognition",
+    "name": "cordova-plugin-speechrecognition",
+    "escapedName": "cordova-plugin-speechrecognition",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/cordova-plugin-speechrecognition/-/cordova-plugin-speechrecognition-1.1.2.tgz",
+  "_shasum": "14503dac334e166a4cc4b87478b8ff72437e54ee",
+  "_spec": "cordova-plugin-speechrecognition",
+  "_where": "/Users/liveldi/Documents/mobilization/hello/node_modules",
+  "author": {
+    "name": "Peter Bakondy"
+  },
+  "bugs": {
+    "url": "https://github.com/pbakondy/cordova-plugin-speechrecognition/issues"
+  },
+  "bundleDependencies": false,
+  "cordova": {
+    "id": "cordova-plugin-speechrecognition",
+    "platforms": [
+      "android",
+      "ios"
+    ]
+  },
+  "deprecated": false,
+  "description": "Cordova Plugin for Speech Recognition",
+  "engines": [
+    {
+      "name": "cordova",
+      "version": ">=3.0.0"
+    }
+  ],
+  "homepage": "https://github.com/pbakondy/cordova-plugin-speechrecognition#readme",
+  "keywords": [
+    "cordova",
+    "speech",
+    "recognition",
+    "ecosystem:cordova",
+    "cordova-android",
+    "cordova-ios"
+  ],
+  "license": "MIT",
+  "name": "cordova-plugin-speechrecognition",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pbakondy/cordova-plugin-speechrecognition.git"
+  },
+  "version": "1.1.2"
+}

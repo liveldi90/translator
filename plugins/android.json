@@ -21,6 +21,12 @@
         },
         "cordova-plugin-media": {
             "PACKAGE_NAME": "com.example.hello"
+        },
+        "ro.martinescu.audio": {
+            "PACKAGE_NAME": "com.example.hello"
+        },
+        "cordova-plugin-speechrecognition": {
+            "PACKAGE_NAME": "com.example.hello"
         }
     },
     "dependent_plugins": {

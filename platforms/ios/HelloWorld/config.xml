@@ -59,4 +59,7 @@
     <feature name="Media">
         <param name="ios-package" value="CDVSound" />
     </feature>
+    <feature name="SpeechRecognition">
+        <param name="ios-package" value="SpeechRecognition" />
+    </feature>
 </widget>

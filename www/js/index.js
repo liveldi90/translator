@@ -28,9 +28,21 @@ var app = {
     // 'pause', 'resume', etc.
     onDeviceReady: function () {
         console.log('device was ready');
+        window.plugins.speechRecognition.requestPermission(successCallback, errorCallback)
         document
             .getElementById('record')
-            .addEventListener('click', this.onRecord.bind(this));
+            .addEventListener('click', this.onRecordWav.bind(this));
+
+        window.plugins.speechRecognition.stopListening(successCallback, errorCallback);
+    },
+
+    onRecordWav: function () {
+        window.plugins.speechRecognition.startListening(
+            successCallback, errorCallback, {
+                language: 'ru-RU',
+                matches: 5,
+                showPopup: false,
+            })
     },
 
     onRecord: function () {
@@ -42,13 +54,16 @@ var app = {
         var captureSuccess = function(mediaFiles) {
             console.log('captureSuccess');
             var mediaFile = mediaFiles[0];
-            console.log(mediaFile)
-            window.resolveLocalFileSystemURL(mediaFile.localURL, function (fileEntry) {
-                console.log('success file entry');
-                readBinaryFile(fileEntry);
-            }, function () {
-                console.log('error');
-            });
+            console.log(mediaFile);
+            var mf = new Media(mediaFile.localURL);
+            console.log(mf)
+            mf.play();
+            // window.resolveLocalFileSystemURL(mediaFile.localURL, function (fileEntry) {
+            //     console.log('success file entry');
+            //     readBinaryFile(fileEntry);
+            // }, function () {
+            //     console.log('error');
+            // });
             // var my_media = new Media(mediaFile.localURL)
             // console.log(my_media)
             // console.dir(createFile(dirEntry, fileName, isAppend));
@@ -94,30 +109,36 @@ function readBinaryFile(fileEntry) {
     fileEntry.file(function (file) {
         var reader = new FileReader();
 
-        reader.onloadend = function() {
+        reader.onloadend = function(event) {
 
-            console.log("Successful file write: " + this.result);
-            var uint8array = new Uint8Array(this.result);
-            var str = new TextDecoder().decode(uint8array);
+            console.log("Successful file write: " + event.target.result);
+            console.log(event.target.result);
+            // var uint8array = new Uint8Array(event.target.result);
+            // var str = new TextDecoder().decode(uint8array);
 
             var xhr = new XMLHttpRequest();
 
-            var body = str
+            var body = event.target.result;
+            console.log('body');
 
             xhr.open("POST", 'https://asr.yandex.net/asr_xml?uuid=01ae13cb744628b58fb536d496daa1e6&key=fc7d4c6f-8282-4a4f-8614-0735571d2b6d&topic=queries', true)
-            xhr.setRequestHeader('Content-Type', 'audio/x-mpeg-3')
+            xhr.setRequestHeader('Content-Type', 'audio/mpeg')
 
 
             xhr.send(body);
         };
 
-        reader.readAsArrayBuffer(file);
+        reader.readAsText(file)
 
     }, function (e) {
         console.log(e, 'error');
     });
 }
-
-function pad(n) {
-    return n.length < 2 ? "0" + n : n;
+function successCallback(e) {
+    console.log('success', arguments);
 }
+
+function errorCallback(e) {
+    console.log('error', arguments);
+}
+

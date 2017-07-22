@@ -27,6 +27,10 @@
                         {
                             "xml": "<feature name=\"Media\"><param name=\"ios-package\" value=\"CDVSound\" /></feature>",
                             "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"SpeechRecognition\"><param name=\"ios-package\" value=\"SpeechRecognition\" /></feature>",
+                            "count": 1
                         }
                     ]
                 }
@@ -55,6 +59,16 @@
                         {
                             "xml": "<string> </string>",
                             "count": 2
+                        },
+                        {
+                            "xml": "<string>Request to use Microphone</string>",
+                            "count": 1
+                        }
+                    ],
+                    "NSSpeechRecognitionUsageDescription": [
+                        {
+                            "xml": "<string>Request to use Speech Recognition</string>",
+                            "count": 1
                         }
                     ]
                 }
@@ -84,6 +98,12 @@
         },
         "cordova-plugin-media": {
             "MICROPHONE_USAGE_DESCRIPTION": " ",
+            "PACKAGE_NAME": "com.example.hello"
+        },
+        "ro.martinescu.audio": {
+            "PACKAGE_NAME": "com.example.hello"
+        },
+        "cordova-plugin-speechrecognition": {
             "PACKAGE_NAME": "com.example.hello"
         }
     },
@@ -371,6 +391,14 @@
             "clobbers": [
                 "window.Media"
             ]
+        },
+        {
+            "id": "cordova-plugin-speechrecognition.SpeechRecognition",
+            "file": "plugins/cordova-plugin-speechrecognition/www/speechRecognition.js",
+            "pluginId": "cordova-plugin-speechrecognition",
+            "merges": [
+                "window.plugins.speechRecognition"
+            ]
         }
     ],
     "plugin_metadata": {
@@ -379,6 +407,8 @@
         "cordova-plugin-camera": "2.4.1",
         "cordova-plugin-file": "4.3.3",
         "cordova-plugin-media-capture": "1.4.3",
-        "cordova-plugin-media": "3.0.1"
+        "cordova-plugin-media": "3.0.1",
+        "ro.martinescu.audio": "0.1.0",
+        "cordova-plugin-speechrecognition": "1.1.2"
     }
 }
