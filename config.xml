@@ -15,6 +15,7 @@
     <allow-intent href="sms:*" />
     <allow-intent href="mailto:*" />
     <allow-intent href="geo:*" />
+    <access origin="https://asr.yandex.net" />
     <platform name="android">
         <allow-intent href="market:*" />
     </platform>
