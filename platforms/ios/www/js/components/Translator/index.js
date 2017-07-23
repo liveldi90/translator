@@ -59,10 +59,7 @@ Translator.prototype = Object.assign(Translator.prototype, {
     },
 
     stop: function (data) {
-        if (isIOS) this.btnNode.innerHTML = 'Начать';
-        else this.btnNode.disabled = false;
-
-        this.iconNode.classList.remove(this.activeIconClass);
+        this.clearDOM();
         this.loaderNode.style.display = 'block';
 
         api({
@@ -77,14 +74,21 @@ Translator.prototype = Object.assign(Translator.prototype, {
     },
 
     showAnswerInModal: function (response) {
-        console.log(response)
         this.loaderNode.style.display = 'none';
         modal.open(this.createAnswerHtml(response.text[0]));
     },
 
+    clearDOM: function () {
+        if (isIOS) this.btnNode.innerHTML = 'Начать';
+        else this.btnNode.disabled = false;
+
+        this.iconNode.classList.remove(this.activeIconClass);
+
+    },
+
     showErrorInModal: function (error) {
         this.loaderNode.style.display = 'none';
-        var message = 'Ошибка. ' + error.message;
+        var message = 'Ошибка. ' + error.message ? error.message : error;
 
         modal.open(this.createAnswerHtml(message, true));
     },
