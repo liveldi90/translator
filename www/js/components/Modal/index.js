@@ -1,8 +1,6 @@
-/**
- * Modal
- */
+import './style.css';
 
-function Modal() {
+export default function Modal() {
     var modalNode = document.querySelector('.modal');
     if (modalNode) return;
 
@@ -48,5 +46,3 @@ Modal.prototype = Object.assign(Modal.prototype, {
       this.modalNode.style.display = 'none';
     },
 });
-
-var modal = new Modal();
