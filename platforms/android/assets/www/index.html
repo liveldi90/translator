@@ -38,10 +38,17 @@
     </head>
     <body>
         <div class="app">
-            <button id='record'>Record</button>
-            <button id='stop'>Stop</button>
+            <div class="speech">
+                <div class="speech--link speech--dictionary">Словарь</div>
+                <div class="speech--icon">
+                    <i class="icon-microphone"></i>
+                </div>
+                <button class="speech--btn btn">Начать</button>
+            </div>
         </div>
         <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/Modal.js"></script>
+        <script type="text/javascript" src="js/Speech.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
     </body>
 </html>
