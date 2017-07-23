@@ -1,0 +1,54 @@
+/**
+ * Speech
+ */
+.translator {}
+
+  .translator--icon {
+    position: absolute;
+    top: 42%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 2rem;
+  }
+
+    .translator--icon-active {
+      animation-name: translatorIcon;
+      animation-duration: 1s;
+      animation-iteration-count: infinite;
+    }
+
+  .translator--btn {
+    position: absolute;
+    bottom: 5rem;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .translator--link {
+    border-bottom: 1px solid;
+  }
+
+  .translator--text {
+    font-size: 1.4rem;
+  }
+
+  .translator--error {
+    color: red;
+  }
+
+  .translator--text:after {
+    content: '.';
+  }
+
+  .translator--dictionary {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+  }
+
+@keyframes translatorIcon {
+  from { opacity: 1; }
+  50% { opacity: 0.5; }
+  to { opacity: 1; }
+}
+

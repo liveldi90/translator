@@ -548,11 +548,15 @@ app.initialize();
 /* harmony export (immutable) */ __webpack_exports__["a"] = Translator;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__utils_speechRecognition__ = __webpack_require__(4);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__utils_api__ = __webpack_require__(12);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__style_css__ = __webpack_require__(5);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__style_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__style_css__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__utils_detectionOS__ = __webpack_require__(20);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__style_css__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__style_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__style_css__);
 
 
 
+
+
+var isIOS = Object(__WEBPACK_IMPORTED_MODULE_2__utils_detectionOS__["a" /* default */])() === 'iOS';
 
 function Translator(ops) {
     this.parentNode = document.querySelector(ops.parentNode);
@@ -572,19 +576,33 @@ Translator.prototype = Object.assign(Translator.prototype, {
 
         this.stop = this.stop.bind(this);
         this.start = this.start.bind(this);
+        this.startIOS = this.startIOS.bind(this);
         this.showAnswerInModal = this.showAnswerInModal.bind(this);
         this.showErrorInModal = this.showErrorInModal.bind(this);
 
+        this.isSpeechStarted = false;
         this.events();
     },
 
     events: function () {
         __WEBPACK_IMPORTED_MODULE_0__utils_speechRecognition__["a" /* default */].requestPermission();
-        this.btnNode.addEventListener('click', this.start);
+        var start = isIOS ? this.startIOS : this.start;
+        this.btnNode.addEventListener('click', start);
+    },
+
+    startIOS: function () {
+        if (this.isSpeechStarted) {
+            __WEBPACK_IMPORTED_MODULE_0__utils_speechRecognition__["a" /* default */].stopListening();
+            this.isSpeechStarted = false;
+        } else {
+            this.isSpeechStarted = true;
+            this.btnNode.innerHTML = 'Остановить';
+            this.start();
+        }
     },
 
     start: function () {
-        this.btnNode.disabled = true;
+        if (!isIOS) this.btnNode.disabled = true;
         this.iconNode.classList.add(this.activeIconClass);
 
         __WEBPACK_IMPORTED_MODULE_0__utils_speechRecognition__["a" /* default */].hasPermission()
@@ -594,7 +612,9 @@ Translator.prototype = Object.assign(Translator.prototype, {
     },
 
     stop: function (data) {
-        this.btnNode.disabled = false;
+        if (isIOS) this.btnNode.innerHTML = 'Начать';
+        else this.btnNode.disabled = false;
+
         this.iconNode.classList.remove(this.activeIconClass);
         this.loaderNode.style.display = 'block';
 
@@ -611,7 +631,6 @@ Translator.prototype = Object.assign(Translator.prototype, {
 
     showAnswerInModal: function (response) {
         this.loaderNode.style.display = 'none';
-        console.log(response);
         modal.open(this.createAnswerHtml(response.text[0]));
     },
 
@@ -1397,6 +1416,33 @@ function extend() {
     }
 
     return target
+}
+
+
+/***/ }),
+/* 20 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (immutable) */ __webpack_exports__["a"] = getMobileOperatingSystem;
+function getMobileOperatingSystem() {
+  var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+
+      // Windows Phone must come first because its UA also contains "Android"
+    if (/windows phone/i.test(userAgent)) {
+        return "Windows Phone";
+    }
+
+    if (/android/i.test(userAgent)) {
+        return "Android";
+    }
+
+    // iOS detection from: http://stackoverflow.com/a/9039885/177710
+    if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+        return "iOS";
+    }
+
+    return "unknown";
 }
 
 

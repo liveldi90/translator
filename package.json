@@ -1,5 +1,5 @@
 {
-    "name": "com.example.hello",
+    "name": "com.example.hello.foo",
     "displayName": "HelloWorld",
     "version": "1.0.0",
     "description": "A sample Apache Cordova application that responds to the deviceready event.",

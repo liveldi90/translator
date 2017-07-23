@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.example.hello" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="com.example.hello.foo" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>Translator</name>
     <description>
         A sample Apache Cordova application that responds to the deviceready event.
@@ -30,7 +30,7 @@
         <variable name="MICROPHONE_USAGE_DESCRIPTION" value=" " />
     </plugin>
     <plugin name="cordova-plugin-speechrecognition" spec="^1.1.2" />
+    <plugin name="cordova-plugin-tts" spec="^0.2.3" />
     <plugin name="cordova-plugin-whitelist" spec="^1.3.2" />
     <plugin name="ro.martinescu.audio" spec="https://github.com/petrica/wav-recorder.git" />
-    <plugin name="cordova-plugin-tts" spec="^0.2.3" />
 </widget>

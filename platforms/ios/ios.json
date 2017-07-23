@@ -29,9 +29,6 @@
             },
             "*-Info.plist": {
                 "parents": {
-                    "NSCameraUsageDescription": [],
-                    "NSPhotoLibraryUsageDescription": [],
-                    "NSLocationWhenInUseUsageDescription": [],
                     "NSMicrophoneUsageDescription": [
                         {
                             "xml": "<string> </string>",
@@ -53,27 +50,27 @@
         }
     },
     "installed_plugins": {
-        "cordova-plugin-whitelist": {
-            "PACKAGE_NAME": "com.example.hello"
-        },
         "cordova-plugin-compat": {
-            "PACKAGE_NAME": "com.example.hello"
+            "PACKAGE_NAME": "com.example.hello.foo"
         },
         "cordova-plugin-file": {
-            "PACKAGE_NAME": "com.example.hello"
+            "PACKAGE_NAME": "com.example.hello.foo"
         },
         "cordova-plugin-media": {
             "MICROPHONE_USAGE_DESCRIPTION": " ",
-            "PACKAGE_NAME": "com.example.hello"
-        },
-        "ro.martinescu.audio": {
-            "PACKAGE_NAME": "com.example.hello"
+            "PACKAGE_NAME": "com.example.hello.foo"
         },
         "cordova-plugin-speechrecognition": {
-            "PACKAGE_NAME": "com.example.hello"
+            "PACKAGE_NAME": "com.example.hello.foo"
         },
         "cordova-plugin-tts": {
-            "PACKAGE_NAME": "com.example.hello"
+            "PACKAGE_NAME": "com.example.hello.foo"
+        },
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "com.example.hello.foo"
+        },
+        "ro.martinescu.audio": {
+            "PACKAGE_NAME": "com.example.hello.foo"
         }
     },
     "dependent_plugins": {},
@@ -285,12 +282,12 @@
         }
     ],
     "plugin_metadata": {
-        "cordova-plugin-whitelist": "1.3.2",
         "cordova-plugin-compat": "1.1.0",
         "cordova-plugin-file": "4.3.3",
         "cordova-plugin-media": "3.0.1",
-        "ro.martinescu.audio": "0.1.0",
         "cordova-plugin-speechrecognition": "1.1.2",
-        "cordova-plugin-tts": "0.2.3"
+        "cordova-plugin-tts": "0.2.3",
+        "cordova-plugin-whitelist": "1.3.2",
+        "ro.martinescu.audio": "0.1.0"
     }
 }

@@ -209,13 +209,13 @@ module.exports = [
 module.exports.metadata = 
 // TOP OF METADATA
 {
-    "cordova-plugin-whitelist": "1.3.2",
     "cordova-plugin-compat": "1.1.0",
     "cordova-plugin-file": "4.3.3",
     "cordova-plugin-media": "3.0.1",
-    "ro.martinescu.audio": "0.1.0",
     "cordova-plugin-speechrecognition": "1.1.2",
-    "cordova-plugin-tts": "0.2.3"
+    "cordova-plugin-tts": "0.2.3",
+    "cordova-plugin-whitelist": "1.3.2",
+    "ro.martinescu.audio": "0.1.0"
 };
 // BOTTOM OF METADATA
 });

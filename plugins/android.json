@@ -7,28 +7,28 @@
         "files": {}
     },
     "installed_plugins": {
-        "cordova-plugin-whitelist": {
-            "PACKAGE_NAME": "com.example.hello"
-        },
         "cordova-plugin-file": {
-            "PACKAGE_NAME": "com.example.hello"
+            "PACKAGE_NAME": "com.example.hello.foo"
         },
         "cordova-plugin-media": {
-            "PACKAGE_NAME": "com.example.hello"
-        },
-        "ro.martinescu.audio": {
-            "PACKAGE_NAME": "com.example.hello"
+            "PACKAGE_NAME": "com.example.hello.foo"
         },
         "cordova-plugin-speechrecognition": {
-            "PACKAGE_NAME": "com.example.hello"
+            "PACKAGE_NAME": "com.example.hello.foo"
         },
         "cordova-plugin-tts": {
-            "PACKAGE_NAME": "com.example.hello"
+            "PACKAGE_NAME": "com.example.hello.foo"
+        },
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "com.example.hello.foo"
+        },
+        "ro.martinescu.audio": {
+            "PACKAGE_NAME": "com.example.hello.foo"
         }
     },
     "dependent_plugins": {
         "cordova-plugin-compat": {
-            "PACKAGE_NAME": "com.example.hello"
+            "PACKAGE_NAME": "com.example.hello.foo"
         }
     }
 }

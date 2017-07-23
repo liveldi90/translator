@@ -1,6 +1,9 @@
 import speechRecognition from '_utils/speechRecognition';
 import api from '_utils/api';
+import detectionOS from '_utils/detectionOS';
+
 import './style.css';
+var isIOS = detectionOS() === 'iOS';
 
 export default function Translator(ops) {
     this.parentNode = document.querySelector(ops.parentNode);
@@ -20,19 +23,33 @@ Translator.prototype = Object.assign(Translator.prototype, {
 
         this.stop = this.stop.bind(this);
         this.start = this.start.bind(this);
+        this.startIOS = this.startIOS.bind(this);
         this.showAnswerInModal = this.showAnswerInModal.bind(this);
         this.showErrorInModal = this.showErrorInModal.bind(this);
 
+        this.isSpeechStarted = false;
         this.events();
     },
 
     events: function () {
         speechRecognition.requestPermission();
-        this.btnNode.addEventListener('click', this.start);
+        var start = isIOS ? this.startIOS : this.start;
+        this.btnNode.addEventListener('click', start);
+    },
+
+    startIOS: function () {
+        if (this.isSpeechStarted) {
+            speechRecognition.stopListening();
+            this.isSpeechStarted = false;
+        } else {
+            this.isSpeechStarted = true;
+            this.btnNode.innerHTML = 'Остановить';
+            this.start();
+        }
     },
 
     start: function () {
-        this.btnNode.disabled = true;
+        if (!isIOS) this.btnNode.disabled = true;
         this.iconNode.classList.add(this.activeIconClass);
 
         speechRecognition.hasPermission()
@@ -42,7 +59,9 @@ Translator.prototype = Object.assign(Translator.prototype, {
     },
 
     stop: function (data) {
-        this.btnNode.disabled = false;
+        if (isIOS) this.btnNode.innerHTML = 'Начать';
+        else this.btnNode.disabled = false;
+
         this.iconNode.classList.remove(this.activeIconClass);
         this.loaderNode.style.display = 'block';
 
@@ -59,7 +78,6 @@ Translator.prototype = Object.assign(Translator.prototype, {
 
     showAnswerInModal: function (response) {
         this.loaderNode.style.display = 'none';
-        console.log(response);
         modal.open(this.createAnswerHtml(response.text[0]));
     },
 
