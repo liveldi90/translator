@@ -10,17 +10,6 @@
         "cordova-plugin-whitelist": {
             "PACKAGE_NAME": "com.example.hello"
         },
-        "cordova-plugin-camera": {
-            "CAMERA_USAGE_DESCRIPTION": " ",
-            "PHOTOLIBRARY_USAGE_DESCRIPTION": " ",
-            "PACKAGE_NAME": "com.example.hello"
-        },
-        "cordova-plugin-media-capture": {
-            "CAMERA_USAGE_DESCRIPTION": " ",
-            "MICROPHONE_USAGE_DESCRIPTION": " ",
-            "PHOTOLIBRARY_USAGE_DESCRIPTION": " ",
-            "PACKAGE_NAME": "com.example.hello"
-        },
         "cordova-plugin-file": {
             "PACKAGE_NAME": "com.example.hello"
         },
@@ -32,6 +21,9 @@
             "PACKAGE_NAME": "com.example.hello"
         },
         "cordova-plugin-speechrecognition": {
+            "PACKAGE_NAME": "com.example.hello"
+        },
+        "cordova-plugin-tts": {
             "PACKAGE_NAME": "com.example.hello"
         }
     },

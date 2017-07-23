@@ -4,17 +4,11 @@
         <param name="android-package" value="org.apache.cordova.whitelist.WhitelistPlugin" />
         <param name="onload" value="true" />
     </feature>
-    <feature name="Camera">
-        <param name="android-package" value="org.apache.cordova.camera.CameraLauncher" />
-    </feature>
     <feature name="File">
         <param name="android-package" value="org.apache.cordova.file.FileUtils" />
         <param name="onload" value="true" />
     </feature>
     <allow-navigation href="cdvfile:*" />
-    <feature name="Capture">
-        <param name="android-package" value="org.apache.cordova.mediacapture.Capture" />
-    </feature>
     <feature name="Media">
         <param name="android-package" value="org.apache.cordova.media.AudioHandler" />
     </feature>
@@ -24,7 +18,7 @@
     <feature name="SpeechRecognition">
         <param name="android-package" value="com.pbakondy.SpeechRecognition" />
     </feature>
-    <name>HelloWorld</name>
+    <name>Translator</name>
     <description>
         A sample Apache Cordova application that responds to the deviceready event.
     </description>
@@ -42,4 +36,8 @@
     <access origin="https://asr.yandex.net" />
     <allow-intent href="market:*" />
     <preference name="loglevel" value="DEBUG" />
+    <feature name="TTS">
+        <param name="android-package" value="com.wordsbaking.cordova.tts.TTS" />
+        <param name="onload" value="true" />
+    </feature>
 </widget>

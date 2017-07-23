@@ -16,6 +16,7 @@
 		F8670D3B221548409AD3AE93 /* CDVSound.m in Sources */ = {isa = PBXBuildFile; fileRef = 331EAA15CA6B40A89B778153 /* CDVSound.m */; };
 		DBC53DFCA87348BD9D1BCE7B /* SpeechRecognition.m in Sources */ = {isa = PBXBuildFile; fileRef = 83A689FD3FF34504B8430835 /* SpeechRecognition.m */; };
 		23BE58C8677E4DCFA4A9DC1C /* Speech.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E065342D862040F9A2C32D62 /* Speech.framework */; };
+		3D1CFCAEEABD415F8ED36E60 /* CDVTTS.m in Sources */ = {isa = PBXBuildFile; fileRef = 701D313C42874F24B13D6BFA /* CDVTTS.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +69,8 @@
 		83A689FD3FF34504B8430835 /* SpeechRecognition.m */ = {isa = PBXFileReference; name = "SpeechRecognition.m"; path = "cordova-plugin-speechrecognition/SpeechRecognition.m"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; explicitFileType = undefined; includeInIndex = 0; };
 		92F5566922F1486D98F8284C /* SpeechRecognition.h */ = {isa = PBXFileReference; name = "SpeechRecognition.h"; path = "cordova-plugin-speechrecognition/SpeechRecognition.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
 		E065342D862040F9A2C32D62 /* Speech.framework */ = {isa = PBXFileReference; name = "Speech.framework"; path = "System/Library/Frameworks/Speech.framework"; sourceTree = SDKROOT; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
+		701D313C42874F24B13D6BFA /* CDVTTS.m */ = {isa = PBXFileReference; name = "CDVTTS.m"; path = "cordova-plugin-tts/CDVTTS.m"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; explicitFileType = undefined; includeInIndex = 0; };
+		7C4ECCC8A14C478EB6A99DD2 /* CDVTTS.h */ = {isa = PBXFileReference; name = "CDVTTS.h"; path = "cordova-plugin-tts/CDVTTS.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -178,6 +181,8 @@
 				1F9D9A3790094869B2A34381 /* CDVSound.h */,
 				83A689FD3FF34504B8430835 /* SpeechRecognition.m */,
 				92F5566922F1486D98F8284C /* SpeechRecognition.h */,
+				701D313C42874F24B13D6BFA /* CDVTTS.m */,
+				7C4ECCC8A14C478EB6A99DD2 /* CDVTTS.h */,
 			);
 			name = Plugins;
 			path = HelloWorld/Plugins;
@@ -308,6 +313,7 @@
 				302D95F114D2391D003F00A1 /* MainViewController.m in Sources */,
 				F8670D3B221548409AD3AE93 /* CDVSound.m in Sources */,
 				DBC53DFCA87348BD9D1BCE7B /* SpeechRecognition.m in Sources */,
+				3D1CFCAEEABD415F8ED36E60 /* CDVTTS.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

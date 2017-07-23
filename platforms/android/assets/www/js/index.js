@@ -589,14 +589,13 @@ Translator.prototype = Object.assign(Translator.prototype, {
 
         __WEBPACK_IMPORTED_MODULE_0__utils_speechRecognition__["a" /* default */].hasPermission()
             .then(__WEBPACK_IMPORTED_MODULE_0__utils_speechRecognition__["a" /* default */].startListening)
-            .then(this.stop);
+            .then(this.stop)
+            .catch(this.showErrorInModal);
     },
 
     stop: function (data) {
-        this.btnNode.innerText = 'Начать';
-        this.isActive = false;
+        this.btnNode.disabled = false;
         this.iconNode.classList.remove(this.activeIconClass);
-
         this.loaderNode.style.display = 'block';
 
         Object(__WEBPACK_IMPORTED_MODULE_1__utils_api__["a" /* default */])({
@@ -612,12 +611,13 @@ Translator.prototype = Object.assign(Translator.prototype, {
 
     showAnswerInModal: function (response) {
         this.loaderNode.style.display = 'none';
+        console.log(response);
         modal.open(this.createAnswerHtml(response.text[0]));
     },
 
     showErrorInModal: function (error) {
         this.loaderNode.style.display = 'none';
-        var message = 'Ошибка при получении перевода. ' + error.message;
+        var message = 'Ошибка. ' + error.message;
 
         modal.open(this.createAnswerHtml(message, true));
     },
@@ -714,7 +714,7 @@ exports = module.exports = __webpack_require__(0)(undefined);
 
 
 // module
-exports.push([module.i, "/**\n * Speech\n */\n.translator {}\n\n  .translator--icon {\n    position: absolute;\n    top: 44%;\n    left: 50%;\n    transform: translate(-50%, -50%);\n    font-size: 2rem;\n  }\n\n    .translator--icon-active {\n      animation-name: translatorIcon;\n      animation-duration: 1s;\n      animation-iteration-count: infinite;\n    }\n\n  .translator--btn {\n    position: absolute;\n    bottom: 4rem;\n    left: 50%;\n    transform: translateX(-50%);\n  }\n\n  .translator--link {\n    border-bottom: 1px solid;\n  }\n\n  .translator--text {\n    font-size: 1.4rem;\n  }\n\n  .translator--error {\n    color: red;\n  }\n\n  .translator--text:after {\n    content: '.';\n  }\n\n  .translator--dictionary {\n    position: absolute;\n    top: 1rem;\n    right: 1rem;\n  }\n\n@keyframes translatorIcon {\n  from { opacity: 1; }\n  50% { opacity: 0.5; }\n  to { opacity: 1; }\n}\n\n", ""]);
+exports.push([module.i, "/**\n * Speech\n */\n.translator {}\n\n  .translator--icon {\n    position: absolute;\n    top: 42%;\n    left: 50%;\n    transform: translate(-50%, -50%);\n    font-size: 2rem;\n  }\n\n    .translator--icon-active {\n      animation-name: translatorIcon;\n      animation-duration: 1s;\n      animation-iteration-count: infinite;\n    }\n\n  .translator--btn {\n    position: absolute;\n    bottom: 5rem;\n    left: 50%;\n    transform: translateX(-50%);\n  }\n\n  .translator--link {\n    border-bottom: 1px solid;\n  }\n\n  .translator--text {\n    font-size: 1.4rem;\n  }\n\n  .translator--error {\n    color: red;\n  }\n\n  .translator--text:after {\n    content: '.';\n  }\n\n  .translator--dictionary {\n    position: absolute;\n    top: 1rem;\n    right: 1rem;\n  }\n\n@keyframes translatorIcon {\n  from { opacity: 1; }\n  50% { opacity: 0.5; }\n  to { opacity: 1; }\n}\n\n", ""]);
 
 // exports
 
@@ -867,6 +867,7 @@ Modal.prototype = Object.assign(Modal.prototype, {
     },
 
     close: function () {
+      this.modalContentNode.innerHTML = '';
       this.modalNode.style.display = 'none';
     },
 });

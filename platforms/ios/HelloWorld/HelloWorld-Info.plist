@@ -51,8 +51,6 @@
     <string/>
     <key>NSPhotoLibraryUsageDescription</key>
     <string/>
-    <key>NSLocationWhenInUseUsageDescription</key>
-    <string/>
     <key>NSMicrophoneUsageDescription</key>
     <string>Request to use Microphone</string>
     <key>NSAppTransportSecurity</key>

@@ -43,6 +43,7 @@ Modal.prototype = Object.assign(Modal.prototype, {
     },
 
     close: function () {
+      this.modalContentNode.innerHTML = '';
       this.modalNode.style.display = 'none';
     },
 });

@@ -7,28 +7,12 @@
         "is_top_level": true,
         "variables": {}
     },
-    "cordova-plugin-camera": {
-        "source": {
-            "type": "registry",
-            "id": "cordova-plugin-camera"
-        },
-        "is_top_level": true,
-        "variables": {}
-    },
     "cordova-plugin-compat": {
         "source": {
             "type": "registry",
             "id": "cordova-plugin-compat@^1.1.0"
         },
         "is_top_level": false,
-        "variables": {}
-    },
-    "cordova-plugin-media-capture": {
-        "source": {
-            "type": "registry",
-            "id": "cordova-plugin-media-capture@^1.4.3"
-        },
-        "is_top_level": true,
         "variables": {}
     },
     "cordova-plugin-file": {
@@ -59,6 +43,14 @@
         "source": {
             "type": "registry",
             "id": "cordova-plugin-speechrecognition@^1.1.2"
+        },
+        "is_top_level": true,
+        "variables": {}
+    },
+    "cordova-plugin-tts": {
+        "source": {
+            "type": "registry",
+            "id": "cordova-plugin-tts"
         },
         "is_top_level": true,
         "variables": {}

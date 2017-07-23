@@ -37,14 +37,13 @@ Translator.prototype = Object.assign(Translator.prototype, {
 
         speechRecognition.hasPermission()
             .then(speechRecognition.startListening)
-            .then(this.stop);
+            .then(this.stop)
+            .catch(this.showErrorInModal);
     },
 
     stop: function (data) {
-        this.btnNode.innerText = 'Начать';
-        this.isActive = false;
+        this.btnNode.disabled = false;
         this.iconNode.classList.remove(this.activeIconClass);
-
         this.loaderNode.style.display = 'block';
 
         api({
@@ -60,12 +59,13 @@ Translator.prototype = Object.assign(Translator.prototype, {
 
     showAnswerInModal: function (response) {
         this.loaderNode.style.display = 'none';
+        console.log(response);
         modal.open(this.createAnswerHtml(response.text[0]));
     },
 
     showErrorInModal: function (error) {
         this.loaderNode.style.display = 'none';
-        var message = 'Ошибка при получении перевода. ' + error.message;
+        var message = 'Ошибка. ' + error.message;
 
         modal.open(this.createAnswerHtml(message, true));
     },
