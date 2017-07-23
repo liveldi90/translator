@@ -13,9 +13,11 @@ var app = {
             parentNode: '.translator',
             iconNode: '.translator--icon',
             btnNode: '.translator--btn',
+            loaderNode: '.loader',
 
             activeIconClass: 'translator--icon-active',
             textClass: 'translator--text',
+            errorClass: 'translator--error'
         });
         translator.init();
     },

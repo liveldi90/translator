@@ -32,6 +32,10 @@
     font-size: 1.4rem;
   }
 
+  .translator--error {
+    color: red;
+  }
+
   .translator--text:after {
     content: '.';
   }
