@@ -86,7 +86,7 @@
 		</data>
 		<key>CDVLaunchScreen.storyboardc/01J-lp-oVM-view-Ze5-6b-2t3.nib</key>
 		<data>
-		X/0obXWaG22taInpgCHpuzg5k1Y=
+		JBL2wETp/8bUGhSmpYM6Us4hdYQ=
 		</data>
 		<key>CDVLaunchScreen.storyboardc/Info.plist</key>
 		<data>
@@ -94,11 +94,11 @@
 		</data>
 		<key>CDVLaunchScreen.storyboardc/UIViewController-01J-lp-oVM.nib</key>
 		<data>
-		umuZINUBiGvh6j/VTeoSgbgCMgs=
+		NPNLWom8GtWoxonWAcrWFC+Mqig=
 		</data>
 		<key>Info.plist</key>
 		<data>
-		RmHJYoomqcodcxsDhTwA4Gn774I=
+		KJECxSNU5VEyrBNRWvE5XZ7/DUk=
 		</data>
 		<key>LaunchImage-568h@2x.png</key>
 		<data>
@@ -134,7 +134,7 @@
 		</data>
 		<key>MainViewController.nib</key>
 		<data>
-		oXR0vCA7WDGgNdz+wfDVL0pF3ZI=
+		SZ6ZX0sBEszL/ADJQISWI1H1lM4=
 		</data>
 		<key>PkgInfo</key>
 		<data>
@@ -170,7 +170,7 @@
 		</data>
 		<key>www/css/index.css</key>
 		<data>
-		i+xFaJy2N5JxfPjTNg28qhxvfZc=
+		LmDMpawPQaYRgTBZASxcUNUYbJI=
 		</data>
 		<key>www/img/logo.png</key>
 		<data>
@@ -198,11 +198,11 @@
 		</data>
 		<key>www/js/components/Translator/style.css</key>
 		<data>
-		cdsgnaJXS4Fu7QICh617U74JwPU=
+		iBuqDFiEJFZOl+0b5c0rGVXU75w=
 		</data>
 		<key>www/js/index.js</key>
 		<data>
-		qxa+W2LZiwWt3l8PYgppl99GaMc=
+		xdhiudjRT/e4fCdHGHlcfp1+T8U=
 		</data>
 		<key>www/js/utils/api.js</key>
 		<data>
@@ -547,11 +547,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			X/0obXWaG22taInpgCHpuzg5k1Y=
+			JBL2wETp/8bUGhSmpYM6Us4hdYQ=
 			</data>
 			<key>hash2</key>
 			<data>
-			uJlN/uLO8TlnciayjsX53rbZjCti3bxdQp38Vou2sC8=
+			W8vRtYw8lLEU8hmH4DE6YtW+rhOpseWnODRhMuJkUAg=
 			</data>
 		</dict>
 		<key>CDVLaunchScreen.storyboardc/Info.plist</key>
@@ -569,11 +569,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			umuZINUBiGvh6j/VTeoSgbgCMgs=
+			NPNLWom8GtWoxonWAcrWFC+Mqig=
 			</data>
 			<key>hash2</key>
 			<data>
-			JmaK0MUUxMdba4ha7oxzXuVs03fJ6bnPss4I7VtrqA4=
+			dK3ATS5z4UPdVjXoqnn1AJxEPGfvNHMlKPOV8D9iV54=
 			</data>
 		</dict>
 		<key>LaunchImage-568h@2x.png</key>
@@ -668,11 +668,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			oXR0vCA7WDGgNdz+wfDVL0pF3ZI=
+			SZ6ZX0sBEszL/ADJQISWI1H1lM4=
 			</data>
 			<key>hash2</key>
 			<data>
-			BfJo+LAeuxzNwDbXLFzMqlshAGLT7UQHr5E4JM7bS5s=
+			LX7ExZVKn5uKdpH7wnT4qVbJfHAit4z4eYEPpT08Jxc=
 			</data>
 		</dict>
 		<key>archived-expanded-entitlements.xcent</key>
@@ -756,11 +756,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			i+xFaJy2N5JxfPjTNg28qhxvfZc=
+			LmDMpawPQaYRgTBZASxcUNUYbJI=
 			</data>
 			<key>hash2</key>
 			<data>
-			Z8Xyal/jNPEes4MYhJciOuDu0ydCkrOVhXE0fiuYiZ0=
+			lxmGVIJJ3OUwjFcINOcjsZU4SCEnI56QeYwhuWYd0v0=
 			</data>
 		</dict>
 		<key>www/img/logo.png</key>
@@ -833,22 +833,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			cdsgnaJXS4Fu7QICh617U74JwPU=
+			iBuqDFiEJFZOl+0b5c0rGVXU75w=
 			</data>
 			<key>hash2</key>
 			<data>
-			6dUV1g16gE1I0eJ+HR1qQj77oYEIuPoK2ybHyqUUWaM=
+			vk751l57EpBo7P1+4zTmC1aoZttRRMhVJvR2EF16344=
 			</data>
 		</dict>
 		<key>www/js/index.js</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			qxa+W2LZiwWt3l8PYgppl99GaMc=
+			xdhiudjRT/e4fCdHGHlcfp1+T8U=
 			</data>
 			<key>hash2</key>
 			<data>
-			xRS4mN39m0mbVOecKVFtq9+ikZG9yJZ+6gJVl+FkzPM=
+			xJB5MiLaYip8YJdpglsDdyCLRVmIrjvSeKfHveZztPk=
 			</data>
 		</dict>
 		<key>www/js/utils/api.js</key>

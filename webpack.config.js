@@ -28,6 +28,7 @@ module.exports = {
     alias: {
       _components: path.resolve('www/js/components'),
       _utils: path.resolve('www/js/utils'),
+      _styles: path.resolve('www/styles'),
     },
   }
 }

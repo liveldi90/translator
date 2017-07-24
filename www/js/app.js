@@ -1,6 +1,9 @@
 import Translator from '_components/Translator';
 import Modal from '_components/Modal';
 
+import '_styles/reset.css';
+import '_styles/main.css';
+
 var app = {
     initialize: function () {
         document.addEventListener('deviceready', this.onDeviceReady.bind(this), false);
@@ -13,7 +16,7 @@ var app = {
             parentNode: '.translator',
             iconNode: '.translator--icon',
             btnNode: '.translator--btn',
-            loaderNode: '.loader',
+            loaderNode: '.translator--loader',
 
             activeIconClass: 'translator--icon-active',
             textClass: 'translator--text',

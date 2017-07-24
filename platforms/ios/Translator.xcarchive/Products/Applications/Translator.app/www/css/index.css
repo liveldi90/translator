@@ -92,9 +92,11 @@ body {
  * Buttons
  */
 .btn {
+  -webkit-appearance: none;
   height: 5rem;
   font-size: 1.2rem;
   padding: 0 1rem;
+  background: #f0f0f0;
 }
 
   .btn:disabled {
@@ -107,7 +109,7 @@ body {
 .icon-microphone {
   width: 2em;
   height: 6em;
-  background: #6d6d6d;
+  background: #bb1a21;
   border-radius: 1em;
   display: block;
 }
@@ -119,7 +121,7 @@ body {
     left: -1em;
     width: 4em;
     height: 0.5em;
-    background: #6d6d6d;
+    background: #5c5c5c;
   }
 
   .icon-microphone:after{
@@ -129,7 +131,7 @@ body {
     left: -0.5em;
     right: -0.5em;
     height: 3em;
-    border: 0.3em solid #6d6d6d;
+    border: 0.3em solid #5c5c5c;
     border-top: 0.3em solid #fff;
     border-radius: 0 0 1.5em 1.5em;
   }

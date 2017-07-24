@@ -3,6 +3,7 @@ import api from '_utils/api';
 import detectionOS from '_utils/detectionOS';
 
 import './style.css';
+
 var isIOS = detectionOS() === 'iOS';
 
 export default function Translator(ops) {
