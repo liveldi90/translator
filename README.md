@@ -17,3 +17,16 @@
 * Cordova Text-to-Speech (https://github.com/vilic/cordova-plugin-tts). Для воспроизведения перевода.
 
 Для перевода текста использовалась API Переводчика от Яндекс (https://tech.yandex.ru/translate/doc/dg/reference/translate-docpage/)
+
+## Скриншоты c iOS
+https://monosnap.com/file/uPEWanxLyMKEsmJdTIhLA9ZcQx0ciR
+https://monosnap.com/file/HkXGlePLX4x2RtrLBWbEa8VRp8AxiO
+https://monosnap.com/file/XPJKdyPDabbNU9OmtwX01FoEBYwEci
+
+## Дальнейшее развитие
+
+В плане дальшейшего развития, нужно:
+
+* Реализовать пунктуацию.
+* Сделать возможность смены языка с русского на английский, там можно будет поговорить в англоязычной стране с любым иностранцем, не зная языка, если у каждого будет такое приложение.
+* Запоминание последних 30 фраз и открытие мод. окне. Хранение в localStorage.
