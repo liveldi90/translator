@@ -37,10 +37,6 @@
     color: red;
   }
 
-  .translator--text:after {
-    content: '.';
-  }
-
   .translator--dictionary {
     position: absolute;
     top: 1rem;

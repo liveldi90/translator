@@ -1,8 +1,8 @@
-import Translator from '_components/Translator';
-import Modal from '_components/Modal';
-
 import '_styles/reset.css';
 import '_styles/main.css';
+
+import Translator from '_components/Translator';
+import Modal from '_components/Modal';
 
 var app = {
     initialize: function () {

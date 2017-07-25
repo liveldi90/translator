@@ -86,7 +86,7 @@
 		</data>
 		<key>CDVLaunchScreen.storyboardc/01J-lp-oVM-view-Ze5-6b-2t3.nib</key>
 		<data>
-		JBL2wETp/8bUGhSmpYM6Us4hdYQ=
+		1kJ3zj+dWuyrNj0tuo0coGBNd90=
 		</data>
 		<key>CDVLaunchScreen.storyboardc/Info.plist</key>
 		<data>
@@ -94,11 +94,11 @@
 		</data>
 		<key>CDVLaunchScreen.storyboardc/UIViewController-01J-lp-oVM.nib</key>
 		<data>
-		NPNLWom8GtWoxonWAcrWFC+Mqig=
+		NNBdatGGcirFuiw5UyJ3tXsdGWw=
 		</data>
 		<key>Info.plist</key>
 		<data>
-		KJECxSNU5VEyrBNRWvE5XZ7/DUk=
+		3nyilWI6yf1Gq29/V1wcPvotmMU=
 		</data>
 		<key>LaunchImage-568h@2x.png</key>
 		<data>
@@ -134,7 +134,7 @@
 		</data>
 		<key>MainViewController.nib</key>
 		<data>
-		SZ6ZX0sBEszL/ADJQISWI1H1lM4=
+		CwCdyle1IAu7yaEL+apZHxezAO8=
 		</data>
 		<key>PkgInfo</key>
 		<data>
@@ -146,11 +146,15 @@
 		</data>
 		<key>config.xml</key>
 		<data>
-		l1QT7EHHhkcHyCix5/TsnQs5cAA=
+		IyUtW/VtDyrT+XC4etsO39+tBsA=
 		</data>
 		<key>embedded.mobileprovision</key>
 		<data>
 		jL1OqwQ2Zzj0OsHQbTaT41TZaF4=
+		</data>
+		<key>www/build/main.js</key>
+		<data>
+		6NQR3fABBt9BKD0rLgV5M4XqrTk=
 		</data>
 		<key>www/cordova-js-src/exec.js</key>
 		<data>
@@ -168,9 +172,13 @@
 		<data>
 		GPbVu26x9cVHfcqp2BpZ8oXuqZ0=
 		</data>
-		<key>www/css/index.css</key>
+		<key>www/css/main.css</key>
 		<data>
-		LmDMpawPQaYRgTBZASxcUNUYbJI=
+		hmzsLtN3bkRUYhaYLNBm0NZ9u4E=
+		</data>
+		<key>www/css/reset.css</key>
+		<data>
+		475W39UtJlXQ86wJS3GoHQyf2fQ=
 		</data>
 		<key>www/img/logo.png</key>
 		<data>
@@ -178,11 +186,11 @@
 		</data>
 		<key>www/index.html</key>
 		<data>
-		+gny6ToCyjTv08YM1bkx+JFvBjM=
+		TbdIOMrnuXGkwM2CaKcKtXC4CVU=
 		</data>
 		<key>www/js/app.js</key>
 		<data>
-		LxPowOtJHgEXVsSyGWHxGwoSWoc=
+		TziM9YVbfJQ52n/7dXlpCV/4JP8=
 		</data>
 		<key>www/js/components/Modal/index.js</key>
 		<data>
@@ -194,15 +202,11 @@
 		</data>
 		<key>www/js/components/Translator/index.js</key>
 		<data>
-		4DTvlwvVkvIkEkirlIV38DXEBog=
+		JRR0cTKYWWVer4AW//+0r5PJcnw=
 		</data>
 		<key>www/js/components/Translator/style.css</key>
 		<data>
-		iBuqDFiEJFZOl+0b5c0rGVXU75w=
-		</data>
-		<key>www/js/index.js</key>
-		<data>
-		xdhiudjRT/e4fCdHGHlcfp1+T8U=
+		RbpSYKUWHAWteQHp7WjT7jMNuSY=
 		</data>
 		<key>www/js/utils/api.js</key>
 		<data>
@@ -210,7 +214,7 @@
 		</data>
 		<key>www/js/utils/detectionOS.js</key>
 		<data>
-		/YWbZFCuhySZCllwJ+AqSamCcc0=
+		OuN8TqzDEcJhEl6e8jzKguMd++M=
 		</data>
 		<key>www/js/utils/speechRecognition.js</key>
 		<data>
@@ -547,11 +551,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			JBL2wETp/8bUGhSmpYM6Us4hdYQ=
+			1kJ3zj+dWuyrNj0tuo0coGBNd90=
 			</data>
 			<key>hash2</key>
 			<data>
-			W8vRtYw8lLEU8hmH4DE6YtW+rhOpseWnODRhMuJkUAg=
+			BpEhg69nbCwm5Vs8mMLqn23bV/9aVtzUACVglqOJe8c=
 			</data>
 		</dict>
 		<key>CDVLaunchScreen.storyboardc/Info.plist</key>
@@ -569,11 +573,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			NPNLWom8GtWoxonWAcrWFC+Mqig=
+			NNBdatGGcirFuiw5UyJ3tXsdGWw=
 			</data>
 			<key>hash2</key>
 			<data>
-			dK3ATS5z4UPdVjXoqnn1AJxEPGfvNHMlKPOV8D9iV54=
+			2L2Nkvn6cJBNoTc1JZK8++wIMDg7birprLjTXOvX/K4=
 			</data>
 		</dict>
 		<key>LaunchImage-568h@2x.png</key>
@@ -668,11 +672,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			SZ6ZX0sBEszL/ADJQISWI1H1lM4=
+			CwCdyle1IAu7yaEL+apZHxezAO8=
 			</data>
 			<key>hash2</key>
 			<data>
-			LX7ExZVKn5uKdpH7wnT4qVbJfHAit4z4eYEPpT08Jxc=
+			Na2RgqZossyBz5uhO2RBWMqZSiBA2/ZHqxMw24llHyM=
 			</data>
 		</dict>
 		<key>archived-expanded-entitlements.xcent</key>
@@ -690,11 +694,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			l1QT7EHHhkcHyCix5/TsnQs5cAA=
+			IyUtW/VtDyrT+XC4etsO39+tBsA=
 			</data>
 			<key>hash2</key>
 			<data>
-			tohOgSC7Ij7ui/rbaAZXasiMPWHBxgdkG0x9rkLk8tw=
+			qWFEkpx51lLOjmeMMNVvF/v6WqMnMeJ1FUsenNut6U8=
 			</data>
 		</dict>
 		<key>embedded.mobileprovision</key>
@@ -706,6 +710,17 @@
 			<key>hash2</key>
 			<data>
 			GFCM6jdqsg5M38YdxSM/1uwHNzOQ0o9DrbzD8cqzXuk=
+			</data>
+		</dict>
+		<key>www/build/main.js</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			6NQR3fABBt9BKD0rLgV5M4XqrTk=
+			</data>
+			<key>hash2</key>
+			<data>
+			7jtoYfhZBIqgavswuhVTW080DyjYnS1KcKMYpSGeQgM=
 			</data>
 		</dict>
 		<key>www/cordova-js-src/exec.js</key>
@@ -752,15 +767,26 @@
 			YN/I3oKD+ZdHo9oi9S1ER3LYrpxiRy0pnKp950vWYmg=
 			</data>
 		</dict>
-		<key>www/css/index.css</key>
+		<key>www/css/main.css</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			LmDMpawPQaYRgTBZASxcUNUYbJI=
+			hmzsLtN3bkRUYhaYLNBm0NZ9u4E=
 			</data>
 			<key>hash2</key>
 			<data>
-			lxmGVIJJ3OUwjFcINOcjsZU4SCEnI56QeYwhuWYd0v0=
+			Aux5npFNQnbsXZEHSHwFk1H3TNxBW+s/o5sWbpcSyr8=
+			</data>
+		</dict>
+		<key>www/css/reset.css</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			475W39UtJlXQ86wJS3GoHQyf2fQ=
+			</data>
+			<key>hash2</key>
+			<data>
+			oKP0NI8Ko8SaSSoBp4nsbggpvKgQkjUgsnM67logYyo=
 			</data>
 		</dict>
 		<key>www/img/logo.png</key>
@@ -778,22 +804,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			+gny6ToCyjTv08YM1bkx+JFvBjM=
+			TbdIOMrnuXGkwM2CaKcKtXC4CVU=
 			</data>
 			<key>hash2</key>
 			<data>
-			g8TEr17OqW98/ig3NTFhKC9vKmusu8h1LPNiXnj279k=
+			gktTw3yU54IrUZYrMHlle9oqHooX6MruDBEDLr9hfKA=
 			</data>
 		</dict>
 		<key>www/js/app.js</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			LxPowOtJHgEXVsSyGWHxGwoSWoc=
+			TziM9YVbfJQ52n/7dXlpCV/4JP8=
 			</data>
 			<key>hash2</key>
 			<data>
-			zhlFbc2OQqES2jK3gkQePzi71j0MmodMskpSBzIcHbI=
+			Q/v5NokC6Qy9Oxlcb3MvU5/D/pYf3XbSIFSmFujPhNw=
 			</data>
 		</dict>
 		<key>www/js/components/Modal/index.js</key>
@@ -822,33 +848,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			4DTvlwvVkvIkEkirlIV38DXEBog=
+			JRR0cTKYWWVer4AW//+0r5PJcnw=
 			</data>
 			<key>hash2</key>
 			<data>
-			NPXeoLezrPc/CVcmFY8bT1teLuM7YG1BGUzljoSQjUo=
+			1XzqQuN3RRHxxX5XDYua4yRHwv0cdDaM1of7fBqd/zc=
 			</data>
 		</dict>
 		<key>www/js/components/Translator/style.css</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			iBuqDFiEJFZOl+0b5c0rGVXU75w=
+			RbpSYKUWHAWteQHp7WjT7jMNuSY=
 			</data>
 			<key>hash2</key>
 			<data>
-			vk751l57EpBo7P1+4zTmC1aoZttRRMhVJvR2EF16344=
-			</data>
-		</dict>
-		<key>www/js/index.js</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			xdhiudjRT/e4fCdHGHlcfp1+T8U=
-			</data>
-			<key>hash2</key>
-			<data>
-			xJB5MiLaYip8YJdpglsDdyCLRVmIrjvSeKfHveZztPk=
+			6ISqjjLgnpi3ZY5c8e+Dw2+fNiEI0QnYUAd7JXH0t34=
 			</data>
 		</dict>
 		<key>www/js/utils/api.js</key>
@@ -866,11 +881,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			/YWbZFCuhySZCllwJ+AqSamCcc0=
+			OuN8TqzDEcJhEl6e8jzKguMd++M=
 			</data>
 			<key>hash2</key>
 			<data>
-			jgvL5JNRCkOxB/uCSjRVoL7v52p7NVXhdG8HagEfj6Y=
+			fa8KuXIG/sK4Mjt7RKGHDVcbyOC5m/ofRKx/WYbg+5E=
 			</data>
 		</dict>
 		<key>www/js/utils/speechRecognition.js</key>

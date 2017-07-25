@@ -10,7 +10,7 @@ export default function Translator(ops) {
     this.parentNode = document.querySelector(ops.parentNode);
     this.iconNode = this.parentNode.querySelector(ops.iconNode);
     this.btnNode = this.parentNode.querySelector(ops.btnNode);
-    this.loaderNode = document.querySelector(ops.loaderNode)
+    this.loaderNode = this.parentNode.querySelector(ops.loaderNode)
 
     this.activeIconClass = ops.activeIconClass;
     this.textClass = ops.textClass;
@@ -34,6 +34,7 @@ Translator.prototype = Object.assign(Translator.prototype, {
 
     events: function () {
         speechRecognition.requestPermission();
+
         var start = isIOS ? this.startIOS : this.start;
         this.btnNode.addEventListener('click', start);
     },
@@ -56,11 +57,11 @@ Translator.prototype = Object.assign(Translator.prototype, {
         speechRecognition.hasPermission()
             .then(speechRecognition.startListening)
             .then(this.stop)
-            .catch(this.showErrorInModal);
+            .catch(this.showErrorInModal.bind(this, 'Фраза не распознана.'));
     },
 
     stop: function (data) {
-        this.clearDOM();
+        this.clearStyles();
         this.loaderNode.style.display = 'block';
 
         api({
@@ -79,17 +80,18 @@ Translator.prototype = Object.assign(Translator.prototype, {
         modal.open(this.createAnswerHtml(response.text[0]));
     },
 
-    clearDOM: function () {
+    clearStyles: function () {
         if (isIOS) this.btnNode.innerHTML = 'Начать';
         else this.btnNode.disabled = false;
 
         this.iconNode.classList.remove(this.activeIconClass);
-
     },
 
     showErrorInModal: function (error) {
-        this.loaderNode.style.display = 'none';
-        var message = 'Ошибка. ' + error.message ? error.message : error;
+        this.clearStyles();
+        var message = error instanceof Object && error.message
+            ? error.message
+            : error;
 
         modal.open(this.createAnswerHtml(message, true));
     },

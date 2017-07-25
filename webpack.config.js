@@ -1,22 +1,24 @@
-const path = require('path');
+var webpack = require('webpack');
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
+var path = require('path');
 
 module.exports = {
   entry: path.resolve('www/js/app.js'),
 
   output: {
-    path: path.resolve('www/js/'),
-    filename: "index.js",
+    path: path.resolve('www/build/'),
+    filename: "main.js",
   },
 
   module: {
     rules: [
       {
         test: /\.css$/,
-        exclude: /node_modules/,
-        use: [
-          'style-loader',
-          'css-loader',
-        ],
+        loader: [ 'style-loader', 'css-loader' ],
+        // loader: ExtractTextPlugin.extract({
+        //   fallback: 'style-loader',
+        //   use: [ 'css-loader', 'postcss-loader' ],
+        // })
       },
       {
         test: /.json$/, loader: 'json-loader',
@@ -24,11 +26,14 @@ module.exports = {
     ],
   },
 
+  plugins: [
+  ],
+
   resolve: {
     alias: {
       _components: path.resolve('www/js/components'),
       _utils: path.resolve('www/js/utils'),
-      _styles: path.resolve('www/styles'),
+      _styles: path.resolve('www/css'),
     },
   }
 }
