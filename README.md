@@ -19,9 +19,9 @@
 Для перевода текста использовалась API Переводчика от Яндекс (https://tech.yandex.ru/translate/doc/dg/reference/translate-docpage/)
 
 ## Скриншоты c iOS
-https://monosnap.com/file/uPEWanxLyMKEsmJdTIhLA9ZcQx0ciR
-https://monosnap.com/file/HkXGlePLX4x2RtrLBWbEa8VRp8AxiO
-https://monosnap.com/file/XPJKdyPDabbNU9OmtwX01FoEBYwEci
+https://monosnap.com/file/XQu9OmHq3kqnsuPL0Ycck5IAoQPDfU
+https://monosnap.com/file/e0HnFLyXHWhc3suJAoPTGGpExDzPMD
+https://monosnap.com/file/J6j5mKalWmRRMY2LF6GhiCw1xCI9jK
 
 ## Дальнейшее развитие
 
