@@ -16,7 +16,7 @@
 * cordova-plugin-speechrecognition (https://github.com/pbakondy/cordova-plugin-speechrecognition). Распознает сказанное выражение.
 * Cordova Text-to-Speech (https://github.com/vilic/cordova-plugin-tts). Для воспроизведения перевода.
 
-Для перевода текста использовалась API Переводчика от Яндекс (https://tech.yandex.ru/translate/doc/dg/reference/translate-docpage/)
+Для перевода текста использовалось API Переводчика от Яндекс (https://tech.yandex.ru/translate/doc/dg/reference/translate-docpage/)
 
 ## Скриншоты c iOS
 https://monosnap.com/file/XQu9OmHq3kqnsuPL0Ycck5IAoQPDfU
