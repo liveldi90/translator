@@ -86,7 +86,7 @@
 		</data>
 		<key>CDVLaunchScreen.storyboardc/01J-lp-oVM-view-Ze5-6b-2t3.nib</key>
 		<data>
-		dgBcWQWRrUVNuwwgNT4m8p3EecI=
+		V3ySPz1j+leKdOXAySz2qSvrEZ0=
 		</data>
 		<key>CDVLaunchScreen.storyboardc/Info.plist</key>
 		<data>
@@ -94,7 +94,7 @@
 		</data>
 		<key>CDVLaunchScreen.storyboardc/UIViewController-01J-lp-oVM.nib</key>
 		<data>
-		y2sPR/e+KmlPD3HhgVolQdjTQvg=
+		3F78RaEJ/ISY6XTxHuzveIjGwPw=
 		</data>
 		<key>Info.plist</key>
 		<data>
@@ -158,7 +158,7 @@
 		</data>
 		<key>MainViewController.nib</key>
 		<data>
-		ADcR70t++dDsPpDFOXYzTW2Ble0=
+		3sqIWvUtxjYBRAoKhPRhtoG8+2c=
 		</data>
 		<key>PkgInfo</key>
 		<data>
@@ -178,11 +178,11 @@
 		</data>
 		<key>www/build/main.js</key>
 		<data>
-		rH65zE/5LndRXj66a5JbC17karY=
+		LPNydmy8CL6sig2nzfF7qSCKUSo=
 		</data>
 		<key>www/build/styles.css</key>
 		<data>
-		oepydasaGgJw+bT5IRvSt/ScYJ4=
+		AZsEvnX0f49DI+jJ5VIpSwvzFAg=
 		</data>
 		<key>www/cordova-js-src/exec.js</key>
 		<data>
@@ -230,7 +230,7 @@
 		</data>
 		<key>www/js/components/Translator/style.css</key>
 		<data>
-		Wc/lWyWdWMLct/k7wdo5FsetKm4=
+		gV1dAtgLo6Rae0QILP5/kzHIscQ=
 		</data>
 		<key>www/js/utils/api.js</key>
 		<data>
@@ -246,7 +246,7 @@
 		</data>
 		<key>www/js/utils/speechRecognition.js</key>
 		<data>
-		k9IpJdPAjor99jv+jox195XnGAg=
+		ND1gUaLeZ91qEm3vgSNKmHwDPaE=
 		</data>
 		<key>www/plugins/cordova-plugin-file/www/DirectoryEntry.js</key>
 		<data>
@@ -579,11 +579,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			dgBcWQWRrUVNuwwgNT4m8p3EecI=
+			V3ySPz1j+leKdOXAySz2qSvrEZ0=
 			</data>
 			<key>hash2</key>
 			<data>
-			maxuoF26i8Km5FM9e62tcYrfMzyL5V0w5AKz99CTov8=
+			jBmUUvjEp664tNJnbsOZ1gylkA7lNz8IQGmwX0FH2MA=
 			</data>
 		</dict>
 		<key>CDVLaunchScreen.storyboardc/Info.plist</key>
@@ -601,11 +601,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			y2sPR/e+KmlPD3HhgVolQdjTQvg=
+			3F78RaEJ/ISY6XTxHuzveIjGwPw=
 			</data>
 			<key>hash2</key>
 			<data>
-			o4VTurBoUWecJiv+E+XC2YnHbg7yGG44Uo25JEzpxpQ=
+			9cWN4GwRsNq2FcP5oB6UBt0AKNOMMpBm6ejjg3g2jg0=
 			</data>
 		</dict>
 		<key>LaunchImage-568h@2x.png</key>
@@ -766,11 +766,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			ADcR70t++dDsPpDFOXYzTW2Ble0=
+			3sqIWvUtxjYBRAoKhPRhtoG8+2c=
 			</data>
 			<key>hash2</key>
 			<data>
-			LQeYWascOE/1aF78k+d916/5p08JEoJ/uIYPl4DHcIc=
+			Cy+SF3hlDyX0gWINO6fGd6ceu7/pnXP1hFcepsDz+yg=
 			</data>
 		</dict>
 		<key>archived-expanded-entitlements.xcent</key>
@@ -810,22 +810,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			rH65zE/5LndRXj66a5JbC17karY=
+			LPNydmy8CL6sig2nzfF7qSCKUSo=
 			</data>
 			<key>hash2</key>
 			<data>
-			U0DtjsowBblWeYOn5E8r6mRIiHKhWBRPkNN+E/PnVu0=
+			8eUgVJsv/UT6tPT4hMGFeLPIOQS8ScoXkWfnb4fr9Yc=
 			</data>
 		</dict>
 		<key>www/build/styles.css</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			oepydasaGgJw+bT5IRvSt/ScYJ4=
+			AZsEvnX0f49DI+jJ5VIpSwvzFAg=
 			</data>
 			<key>hash2</key>
 			<data>
-			0xwakMTmICcyQZaPiTSA4hs3j5Ec7Km2Lph2NUgWI0o=
+			hostpAsaBnjA28fPyQmWyKZHhxipJjoVcvkx2ZqEBvA=
 			</data>
 		</dict>
 		<key>www/cordova-js-src/exec.js</key>
@@ -953,11 +953,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			Wc/lWyWdWMLct/k7wdo5FsetKm4=
+			gV1dAtgLo6Rae0QILP5/kzHIscQ=
 			</data>
 			<key>hash2</key>
 			<data>
-			+RlN5qdU6LL/3cSx3WMCNy4yCH0gplbIMXDozkm1FJY=
+			20kWXfHmeqlV036KQPt0Gc+jGC7yKGFnWppePWPuoUE=
 			</data>
 		</dict>
 		<key>www/js/utils/api.js</key>
@@ -997,11 +997,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			k9IpJdPAjor99jv+jox195XnGAg=
+			ND1gUaLeZ91qEm3vgSNKmHwDPaE=
 			</data>
 			<key>hash2</key>
 			<data>
-			AJb3E4Y4CHUbei7LZvFrhUz2TL4rwlG/wBAGO4O0kdE=
+			HhEewfkTdPdRBpw/wKMZg6/hoxE90Q4sdZFNHW0bAx8=
 			</data>
 		</dict>
 		<key>www/plugins/cordova-plugin-file/www/DirectoryEntry.js</key>
