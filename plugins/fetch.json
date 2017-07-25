@@ -1,16 +1,8 @@
 {
-    "cordova-plugin-whitelist": {
-        "source": {
-            "type": "registry",
-            "id": "cordova-plugin-whitelist@1"
-        },
-        "is_top_level": true,
-        "variables": {}
-    },
     "cordova-plugin-compat": {
         "source": {
             "type": "registry",
-            "id": "cordova-plugin-compat@^1.1.0"
+            "id": "cordova-plugin-compat@^1.0.0"
         },
         "is_top_level": false,
         "variables": {}
@@ -18,17 +10,9 @@
     "cordova-plugin-file": {
         "source": {
             "type": "registry",
-            "id": "cordova-plugin-file@^4.3.3"
+            "id": "cordova-plugin-file@^4.0.0"
         },
-        "is_top_level": true,
-        "variables": {}
-    },
-    "cordova-plugin-media": {
-        "source": {
-            "type": "registry",
-            "id": "cordova-plugin-media@3.0.1"
-        },
-        "is_top_level": true,
+        "is_top_level": false,
         "variables": {}
     },
     "ro.martinescu.audio": {
@@ -51,6 +35,22 @@
         "source": {
             "type": "registry",
             "id": "cordova-plugin-tts@^0.2.3"
+        },
+        "is_top_level": true,
+        "variables": {}
+    },
+    "cordova-plugin-media": {
+        "source": {
+            "type": "registry",
+            "id": "cordova-plugin-media@>=0.2.0"
+        },
+        "is_top_level": false,
+        "variables": {}
+    },
+    "cordova-plugin-whitelist": {
+        "source": {
+            "type": "registry",
+            "id": "cordova-plugin-whitelist@1.3.2"
         },
         "is_top_level": true,
         "variables": {}

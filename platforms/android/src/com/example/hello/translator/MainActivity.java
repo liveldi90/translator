@@ -17,7 +17,7 @@
        under the License.
  */
 
-package com.example.hello.foo;
+package com.example.hello.translator;
 
 import android.os.Bundle;
 import org.apache.cordova.*;

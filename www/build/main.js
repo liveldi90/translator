@@ -119,6 +119,7 @@ var app = {
             classes: {
                 activeIcon: 'translator--icon-active',
                 text: 'answer--text',
+                error: 'answer--error',
                 buttonWrapper: 'answer--btn',
                 button: 'btn',
                 answer: 'answer',
@@ -164,6 +165,11 @@ app.initialize();
 
 var isIOS = Object(__WEBPACK_IMPORTED_MODULE_2__utils_detectionOS__["a" /* default */])() === 'iOS';
 
+/**
+ * [Translator create a translator, when you can click by a button and give English translate.
+ * also you can pronounce english translate.]
+ * @param {Object} ops { parentNode, iconNode, btnNode, loaderNode, classes }
+ */
 function Translator(ops) {
     this.parentNode = document.querySelector(ops.parentNode);
     this.iconNode = this.parentNode.querySelector(ops.iconNode);
@@ -174,6 +180,9 @@ function Translator(ops) {
 }
 
 Translator.prototype = Object.assign(Translator.prototype, {
+    /**
+     * [init Translator]
+     */
     init: function () {
         if (this.parentNode.dataset.initedTranslator) return;
         this.parentNode.dataset.initedTranslator = true;
@@ -189,6 +198,9 @@ Translator.prototype = Object.assign(Translator.prototype, {
         this.events();
     },
 
+    /**
+     * [events init all eventh]
+     */
     events: function () {
         __WEBPACK_IMPORTED_MODULE_0__utils_speechRecognition__["a" /* default */].requestPermission();
 
@@ -196,6 +208,10 @@ Translator.prototype = Object.assign(Translator.prototype, {
         this.btnNode.addEventListener('click', start);
     },
 
+    /**
+     * [startIOS for ios start have some difference]
+     * @return {[type]} [description]
+     */
     startIOS: function () {
         if (this.isSpeechStarted) {
             __WEBPACK_IMPORTED_MODULE_0__utils_speechRecognition__["a" /* default */].stopListening();
@@ -207,6 +223,9 @@ Translator.prototype = Object.assign(Translator.prototype, {
         }
     },
 
+    /**
+     * [start common start]
+     */
     start: function () {
         if (!isIOS) this.btnNode.disabled = true;
         this.iconNode.classList.add(this.classes.activeIcon);
@@ -217,6 +236,10 @@ Translator.prototype = Object.assign(Translator.prototype, {
             .catch(this.showErrorInModal.bind(this, 'Фраза не распознана.'));
     },
 
+    /**
+     * [stop stop speaking and catch errors]
+     * @param  {Array} data [Array of translated. The first element is more relevant.]
+     */
     stop: function (data) {
         this.clearStyles();
         this.loaderNode.style.display = 'block';
@@ -224,7 +247,7 @@ Translator.prototype = Object.assign(Translator.prototype, {
         Object(__WEBPACK_IMPORTED_MODULE_1__utils_api__["a" /* default */])({
             method: 'POST',
             url: 'https://translate.yandex.net/api/v1.5/tr.json/translate?' +
-                 'key=trnsl.1.1.20170723T140206Z.abdacee94ec6046d.4da303836a8864d67d556ed472a2a1328ffc486e&' +
+                 'key='+ encodeURIComponent('trnsl.1.1.20170723T140206Z.abdacee94ec6046d.4da303836a8864d67d556ed472a2a1328ffc486e') + '&' +
                  'lang=ru-en&' +
                  'text=' + encodeURIComponent(data[0]),
         })
@@ -232,6 +255,10 @@ Translator.prototype = Object.assign(Translator.prototype, {
         .catch(this.showErrorInModal);
     },
 
+    /**
+     * [speak speak text in data]
+     * @param  {String} data
+     */
     speak: function (data) {
         var btnNode = this.btnSpeakNode;
         btnNode.disabled = true;
@@ -243,6 +270,11 @@ Translator.prototype = Object.assign(Translator.prototype, {
         });
     },
 
+    /**
+     * [showAnswerInModal description]
+     * @param  {[type]} response [description]
+     * @return {[type]}          [description]
+     */
     showAnswerInModal: function (response) {
         this.loaderNode.style.display = 'none';
         var text = response.text[0];
@@ -250,20 +282,27 @@ Translator.prototype = Object.assign(Translator.prototype, {
         modal.open(this.createAnswerHtml(text));
     },
 
-    clearStyles: function () {
-        if (isIOS) this.btnNode.innerHTML = 'Начать';
-        else this.btnNode.disabled = false;
-
-        this.iconNode.classList.remove(this.classes.activeIcon);
-    },
-
+    /**
+     * [showErrorInModal show catched errors]
+     */
     showErrorInModal: function (error) {
         this.clearStyles();
+        this.loaderNode.style.display = 'none';
         var message = error instanceof Object && error.message
             ? error.message
             : error;
 
         modal.open(this.createErrorHtml(message));
+    },
+
+    /**
+     * [clearStyles remove added styles when start speaking]
+     */
+    clearStyles: function () {
+        if (isIOS) this.btnNode.innerHTML = 'Начать';
+        else this.btnNode.disabled = false;
+
+        this.iconNode.classList.remove(this.classes.activeIcon);
     },
 
     /**
@@ -290,6 +329,10 @@ Translator.prototype = Object.assign(Translator.prototype, {
         return answer;
     },
 
+    /**
+     * [createErrorHtml create modal with error]
+     * @param  {String} data [text of error]
+     */
     createErrorHtml: function (data) {
         var classes = this.classes;
         var answer = document.createElement('p');
@@ -308,18 +351,30 @@ Translator.prototype = Object.assign(Translator.prototype, {
 
 "use strict";
 var speechRecognition = {
+    /**
+     * [requestPermission wrapper by requestPermission]
+     * @return {Promise}
+     */
     requestPermission: function () {
         return new Promise(function (resolve, reject) {
             window.plugins.speechRecognition.requestPermission(resolve, reject);
         });
     },
 
+    /**
+     * [hasPermission wrapper by hasPermission]
+     * @return {Promise}
+     */
     hasPermission: function () {
         return new Promise(function (resolve, reject) {
             window.plugins.speechRecognition.hasPermission(resolve, reject);
         });
     },
 
+    /**
+     * [startListening wrapper by startListening]
+     * @return {Promise}
+     */
     startListening: function (ops) {
         var mergedOps = Object.assign({
             language: 'ru-RU',
@@ -332,6 +387,10 @@ var speechRecognition = {
         });
     },
 
+    /**
+     * [stopListening wrapper by stopListening]
+     * @return {Promise}
+     */
     stopListening: function () {
         return new Promise(function (resolve, reject) {
             window.plugins.speechRecognition.stopListening(resolve, reject);
@@ -352,6 +411,10 @@ var speechRecognition = {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_xhr___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_xhr__);
 
 
+/**
+ * [API you can send request]
+ * @param {Any} ops [what are you want to send]
+ */
 function API(ops) {
   const sendObj = {
     body: ops.data ? JSON.stringify(ops.data) : '',
@@ -362,11 +425,11 @@ function API(ops) {
     }
   };
 
-  return new Promise((resolve, reject) => {
-    __WEBPACK_IMPORTED_MODULE_0_xhr___default()(sendObj, (error, resp, body) => {
+  return new Promise(function (resolve, reject) {
+    __WEBPACK_IMPORTED_MODULE_0_xhr___default()(sendObj, function (error, resp, body) {
       const answer = JSON.parse(body);
       if (error || (resp.statusCode !== 200 && resp.statusCode !== 201)) {
-        return reject(answer);
+        return reject('Ошибка запроса.');
       }
 
       return resolve(answer);
@@ -809,6 +872,10 @@ function extend() {
 
 "use strict";
 /* harmony export (immutable) */ __webpack_exports__["a"] = getMobileOperatingSystem;
+/**
+ * [getMobileOperatingSystem detected Android or IOS]
+ * @return {String} [type device]
+ */
 function getMobileOperatingSystem() {
   var userAgent = navigator.userAgent || navigator.vendor || window.opera;
 
@@ -830,6 +897,9 @@ function getMobileOperatingSystem() {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/**
+ * [speak object has methods for works with TTS plugin]
+ */
 var speak = {
     start: function (text) {
         return new Promise(function (resolve, reject) {
@@ -857,6 +927,9 @@ var speak = {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__style_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__style_css__);
 
 
+/**
+ * [Modal show any content in Modal. Put in html at once for init and then use the html.]
+ */
 function Modal() {
     var modalNode = document.querySelector('.modal');
     if (modalNode) return;
@@ -867,6 +940,9 @@ function Modal() {
 }
 
 Modal.prototype = Object.assign(Modal.prototype, {
+    /**
+     * [addModalToHTML create html]
+     */
     addModalToHTML: function () {
         var modalNode = document.querySelector('.modal');
         if (modalNode) return;
@@ -882,6 +958,9 @@ Modal.prototype = Object.assign(Modal.prototype, {
         document.body.appendChild(modal);
     },
 
+    /**
+     * [initVarsModal]
+     */
     initVarsModal: function () {
       this.modalNode = document.querySelector('.modal');
       this.modalContentNode = document.querySelector('.modal--container');
@@ -890,15 +969,25 @@ Modal.prototype = Object.assign(Modal.prototype, {
       this.close = this.close.bind(this);
     },
 
+    /**
+     * [events init all need events]
+     */
     events: function () {
       this.modalCloseNode.addEventListener('click', this.close);
     },
 
+    /**
+     * [open modal]
+     * @param  {Element html} html [description]
+     */
     open: function (html) {
       this.modalNode.style.display = 'block';
       this.modalContentNode.append(html);
     },
 
+    /**
+     * [close modal]
+     */
     close: function () {
       this.modalContentNode.innerHTML = '';
       this.modalNode.style.display = 'none';

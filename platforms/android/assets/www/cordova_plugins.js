@@ -222,8 +222,8 @@ module.exports.metadata =
     "cordova-plugin-media": "3.0.1",
     "cordova-plugin-speechrecognition": "1.1.2",
     "cordova-plugin-tts": "0.2.3",
-    "cordova-plugin-whitelist": "1.3.2",
-    "ro.martinescu.audio": "0.1.0"
+    "ro.martinescu.audio": "0.1.0",
+    "cordova-plugin-whitelist": "1.3.2"
 };
 // BOTTOM OF METADATA
 });

@@ -22,9 +22,8 @@ body {
  */
 .btn {
   -webkit-appearance: none;
-  height: 5rem;
-  font-size: 1.2rem;
-  padding: 0 1rem;
+  padding: 1rem;
+  font-size: 1.1rem;
   background: #f0f0f0;
 }
 

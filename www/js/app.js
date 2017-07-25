@@ -21,6 +21,7 @@ var app = {
             classes: {
                 activeIcon: 'translator--icon-active',
                 text: 'answer--text',
+                error: 'answer--error',
                 buttonWrapper: 'answer--btn',
                 button: 'btn',
                 answer: 'answer',

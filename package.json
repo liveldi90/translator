@@ -1,5 +1,5 @@
 {
-    "name": "com.example.hello.foo",
+    "name": "com.example.hello.translator",
     "displayName": "HelloWorld",
     "version": "1.0.0",
     "description": "A sample Apache Cordova application that responds to the deviceready event.",
@@ -23,14 +23,11 @@
     },
     "cordova": {
         "plugins": {
-            "cordova-plugin-whitelist": {},
             "cordova-plugin-file": {},
-            "cordova-plugin-media": {
-                "MICROPHONE_USAGE_DESCRIPTION": " "
-            },
             "ro.martinescu.audio": {},
             "cordova-plugin-speechrecognition": {},
-            "cordova-plugin-tts": {}
+            "cordova-plugin-tts": {},
+            "cordova-plugin-whitelist": {}
         },
         "platforms": [
             "android",
@@ -46,6 +43,7 @@
         "postcss-loader": "2.0.6",
         "style-loader": "0.18.2",
         "sugarss": "1.0.0",
+        "uglifyjs-webpack-plugin": "^0.4.6",
         "webpack": "3.3.0"
     }
 }

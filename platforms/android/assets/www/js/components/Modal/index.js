@@ -1,5 +1,8 @@
 import './style.css';
 
+/**
+ * [Modal show any content in Modal. Put in html at once for init and then use the html.]
+ */
 export default function Modal() {
     var modalNode = document.querySelector('.modal');
     if (modalNode) return;
@@ -10,6 +13,9 @@ export default function Modal() {
 }
 
 Modal.prototype = Object.assign(Modal.prototype, {
+    /**
+     * [addModalToHTML create html]
+     */
     addModalToHTML: function () {
         var modalNode = document.querySelector('.modal');
         if (modalNode) return;
@@ -25,6 +31,9 @@ Modal.prototype = Object.assign(Modal.prototype, {
         document.body.appendChild(modal);
     },
 
+    /**
+     * [initVarsModal]
+     */
     initVarsModal: function () {
       this.modalNode = document.querySelector('.modal');
       this.modalContentNode = document.querySelector('.modal--container');
@@ -33,15 +42,25 @@ Modal.prototype = Object.assign(Modal.prototype, {
       this.close = this.close.bind(this);
     },
 
+    /**
+     * [events init all need events]
+     */
     events: function () {
       this.modalCloseNode.addEventListener('click', this.close);
     },
 
+    /**
+     * [open modal]
+     * @param  {Element html} html [description]
+     */
     open: function (html) {
       this.modalNode.style.display = 'block';
       this.modalContentNode.append(html);
     },
 
+    /**
+     * [close modal]
+     */
     close: function () {
       this.modalContentNode.innerHTML = '';
       this.modalNode.style.display = 'none';

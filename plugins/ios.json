@@ -7,29 +7,30 @@
         "files": {}
     },
     "installed_plugins": {
-        "cordova-plugin-file": {
-            "PACKAGE_NAME": "com.example.hello.foo"
-        },
-        "cordova-plugin-media": {
-            "MICROPHONE_USAGE_DESCRIPTION": " ",
-            "PACKAGE_NAME": "com.example.hello.foo"
-        },
         "cordova-plugin-speechrecognition": {
-            "PACKAGE_NAME": "com.example.hello.foo"
+            "PACKAGE_NAME": "com.example.hello.translator"
         },
         "cordova-plugin-tts": {
-            "PACKAGE_NAME": "com.example.hello.foo"
-        },
-        "cordova-plugin-whitelist": {
-            "PACKAGE_NAME": "com.example.hello.foo"
+            "PACKAGE_NAME": "com.example.hello.translator"
         },
         "ro.martinescu.audio": {
-            "PACKAGE_NAME": "com.example.hello.foo"
+            "MICROPHONE_USAGE_DESCRIPTION": " ",
+            "PACKAGE_NAME": "com.example.hello.translator"
+        },
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "com.example.hello.translator"
         }
     },
     "dependent_plugins": {
         "cordova-plugin-compat": {
-            "PACKAGE_NAME": "com.example.hello.foo"
+            "PACKAGE_NAME": "com.example.hello.translator"
+        },
+        "cordova-plugin-file": {
+            "PACKAGE_NAME": "com.example.hello.translator"
+        },
+        "cordova-plugin-media": {
+            "MICROPHONE_USAGE_DESCRIPTION": " ",
+            "PACKAGE_NAME": "com.example.hello.translator"
         }
     }
 }

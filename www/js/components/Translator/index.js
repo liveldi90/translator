@@ -89,7 +89,7 @@ Translator.prototype = Object.assign(Translator.prototype, {
         api({
             method: 'POST',
             url: 'https://translate.yandex.net/api/v1.5/tr.json/translate?' +
-                 'key=trnsl.1.1.20170723T140206Z.abdacee94ec6046d.4da303836a8864d67d556ed472a2a1328ffc486e&' +
+                 'key='+ encodeURIComponent('trnsl.1.1.20170723T140206Z.abdacee94ec6046d.4da303836a8864d67d556ed472a2a1328ffc486e') + '&' +
                  'lang=ru-en&' +
                  'text=' + encodeURIComponent(data[0]),
         })
@@ -125,6 +125,19 @@ Translator.prototype = Object.assign(Translator.prototype, {
     },
 
     /**
+     * [showErrorInModal show catched errors]
+     */
+    showErrorInModal: function (error) {
+        this.clearStyles();
+        this.loaderNode.style.display = 'none';
+        var message = error instanceof Object && error.message
+            ? error.message
+            : error;
+
+        modal.open(this.createErrorHtml(message));
+    },
+
+    /**
      * [clearStyles remove added styles when start speaking]
      */
     clearStyles: function () {
@@ -132,18 +145,6 @@ Translator.prototype = Object.assign(Translator.prototype, {
         else this.btnNode.disabled = false;
 
         this.iconNode.classList.remove(this.classes.activeIcon);
-    },
-
-    /**
-     * [showErrorInModal show catched errors]
-     */
-    showErrorInModal: function (error) {
-        this.clearStyles();
-        var message = error instanceof Object && error.message
-            ? error.message
-            : error;
-
-        modal.open(this.createErrorHtml(message));
     },
 
     /**

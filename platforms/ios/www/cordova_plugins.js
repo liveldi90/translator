@@ -1,6 +1,22 @@
 cordova.define('cordova/plugin_list', function(require, exports, module) {
 module.exports = [
     {
+        "id": "cordova-plugin-speechrecognition.SpeechRecognition",
+        "file": "plugins/cordova-plugin-speechrecognition/www/speechRecognition.js",
+        "pluginId": "cordova-plugin-speechrecognition",
+        "merges": [
+            "window.plugins.speechRecognition"
+        ]
+    },
+    {
+        "id": "cordova-plugin-tts.tts",
+        "file": "plugins/cordova-plugin-tts/www/tts.js",
+        "pluginId": "cordova-plugin-tts",
+        "clobbers": [
+            "TTS"
+        ]
+    },
+    {
         "id": "cordova-plugin-file.DirectoryEntry",
         "file": "plugins/cordova-plugin-file/www/DirectoryEntry.js",
         "pluginId": "cordova-plugin-file",
@@ -188,34 +204,18 @@ module.exports = [
         "clobbers": [
             "window.Media"
         ]
-    },
-    {
-        "id": "cordova-plugin-speechrecognition.SpeechRecognition",
-        "file": "plugins/cordova-plugin-speechrecognition/www/speechRecognition.js",
-        "pluginId": "cordova-plugin-speechrecognition",
-        "merges": [
-            "window.plugins.speechRecognition"
-        ]
-    },
-    {
-        "id": "cordova-plugin-tts.tts",
-        "file": "plugins/cordova-plugin-tts/www/tts.js",
-        "pluginId": "cordova-plugin-tts",
-        "clobbers": [
-            "TTS"
-        ]
     }
 ];
 module.exports.metadata = 
 // TOP OF METADATA
 {
+    "cordova-plugin-speechrecognition": "1.1.2",
+    "cordova-plugin-tts": "0.2.3",
     "cordova-plugin-compat": "1.1.0",
     "cordova-plugin-file": "4.3.3",
     "cordova-plugin-media": "3.0.1",
-    "cordova-plugin-speechrecognition": "1.1.2",
-    "cordova-plugin-tts": "0.2.3",
-    "cordova-plugin-whitelist": "1.3.2",
-    "ro.martinescu.audio": "0.1.0"
+    "ro.martinescu.audio": "0.1.0",
+    "cordova-plugin-whitelist": "1.3.2"
 };
 // BOTTOM OF METADATA
 });

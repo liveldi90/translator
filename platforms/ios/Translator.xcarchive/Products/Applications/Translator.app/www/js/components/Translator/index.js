@@ -1,29 +1,37 @@
 import speechRecognition from '_utils/speechRecognition';
 import api from '_utils/api';
 import detectionOS from '_utils/detectionOS';
+import speak from '_utils/speak';
 
 import './style.css';
 
 var isIOS = detectionOS() === 'iOS';
 
+/**
+ * [Translator create a translator, when you can click by a button and give English translate.
+ * also you can pronounce english translate.]
+ * @param {Object} ops { parentNode, iconNode, btnNode, loaderNode, classes }
+ */
 export default function Translator(ops) {
     this.parentNode = document.querySelector(ops.parentNode);
     this.iconNode = this.parentNode.querySelector(ops.iconNode);
     this.btnNode = this.parentNode.querySelector(ops.btnNode);
     this.loaderNode = this.parentNode.querySelector(ops.loaderNode)
 
-    this.activeIconClass = ops.activeIconClass;
-    this.textClass = ops.textClass;
-    this.errorClass = ops.errorClass;
+    this.classes = ops.classes;
 }
 
 Translator.prototype = Object.assign(Translator.prototype, {
+    /**
+     * [init Translator]
+     */
     init: function () {
         if (this.parentNode.dataset.initedTranslator) return;
         this.parentNode.dataset.initedTranslator = true;
 
         this.stop = this.stop.bind(this);
         this.start = this.start.bind(this);
+        this.speak = this.speak.bind(this);
         this.startIOS = this.startIOS.bind(this);
         this.showAnswerInModal = this.showAnswerInModal.bind(this);
         this.showErrorInModal = this.showErrorInModal.bind(this);
@@ -32,13 +40,20 @@ Translator.prototype = Object.assign(Translator.prototype, {
         this.events();
     },
 
+    /**
+     * [events init all eventh]
+     */
     events: function () {
         speechRecognition.requestPermission();
-        console.log(isIOS)
+
         var start = isIOS ? this.startIOS : this.start;
         this.btnNode.addEventListener('click', start);
     },
 
+    /**
+     * [startIOS for ios start have some difference]
+     * @return {[type]} [description]
+     */
     startIOS: function () {
         if (this.isSpeechStarted) {
             speechRecognition.stopListening();
@@ -50,9 +65,12 @@ Translator.prototype = Object.assign(Translator.prototype, {
         }
     },
 
+    /**
+     * [start common start]
+     */
     start: function () {
         if (!isIOS) this.btnNode.disabled = true;
-        this.iconNode.classList.add(this.activeIconClass);
+        this.iconNode.classList.add(this.classes.activeIcon);
 
         speechRecognition.hasPermission()
             .then(speechRecognition.startListening)
@@ -60,6 +78,10 @@ Translator.prototype = Object.assign(Translator.prototype, {
             .catch(this.showErrorInModal.bind(this, 'Фраза не распознана.'));
     },
 
+    /**
+     * [stop stop speaking and catch errors]
+     * @param  {Array} data [Array of translated. The first element is more relevant.]
+     */
     stop: function (data) {
         this.clearStyles();
         this.loaderNode.style.display = 'block';
@@ -75,32 +97,89 @@ Translator.prototype = Object.assign(Translator.prototype, {
         .catch(this.showErrorInModal);
     },
 
+    /**
+     * [speak speak text in data]
+     * @param  {String} data
+     */
+    speak: function (data) {
+        var btnNode = this.btnSpeakNode;
+        btnNode.disabled = true;
+
+        speak.start(data).then(function () {
+            btnNode.disabled = false;
+        }).catch(function () {
+            btnNode.disabled = false;
+        });
+    },
+
+    /**
+     * [showAnswerInModal description]
+     * @param  {[type]} response [description]
+     * @return {[type]}          [description]
+     */
     showAnswerInModal: function (response) {
         this.loaderNode.style.display = 'none';
-        modal.open(this.createAnswerHtml(response.text[0]));
+        var text = response.text[0];
+
+        modal.open(this.createAnswerHtml(text));
     },
 
-    clearStyles: function () {
-        if (isIOS) this.btnNode.innerHTML = 'Начать';
-        else this.btnNode.disabled = false;
-
-        this.iconNode.classList.remove(this.activeIconClass);
-    },
-
+    /**
+     * [showErrorInModal show catched errors]
+     */
     showErrorInModal: function (error) {
         this.clearStyles();
+        this.loaderNode.style.display = 'none';
         var message = error instanceof Object && error.message
             ? error.message
             : error;
 
-        modal.open(this.createAnswerHtml(message, true));
+        modal.open(this.createErrorHtml(message));
     },
 
-    createAnswerHtml: function (data, isError) {
+    /**
+     * [clearStyles remove added styles when start speaking]
+     */
+    clearStyles: function () {
+        if (isIOS) this.btnNode.innerHTML = 'Начать';
+        else this.btnNode.disabled = false;
+
+        this.iconNode.classList.remove(this.classes.activeIcon);
+    },
+
+    /**
+     * [createAnswerHtml]
+     * @param  {Object}  data
+     * @return {HTML}
+     */
+    createAnswerHtml: function (data) {
+        var classes = this.classes;
+        var answer = document.createElement('div');
+
+        // container
+        answer.className = classes.answer;
+        answer.innerHTML = (
+            '<p class="' + classes.text + '">' + data + '</p>' +
+            '<div class="' + classes.buttonWrapper + '">' +
+                '<button class="' + classes.button + '">Воспроизвести</button>' +
+            '</div>'
+        );
+
+        this.btnSpeakNode = answer.querySelector('.btn');
+        this.btnSpeakNode.addEventListener('click', this.speak.bind(this, data));
+
+        return answer;
+    },
+
+    /**
+     * [createErrorHtml create modal with error]
+     * @param  {String} data [text of error]
+     */
+    createErrorHtml: function (data) {
+        var classes = this.classes;
         var answer = document.createElement('p');
-        answer.className = isError
-            ? this.textClass + ' ' + this.errorClass
-            : this.textClass;
+
+        answer.className = classes.text + ' ' + classes.error;
         answer.innerHTML = data;
 
         return answer;

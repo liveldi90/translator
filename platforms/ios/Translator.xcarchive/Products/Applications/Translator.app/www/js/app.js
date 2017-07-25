@@ -18,9 +18,14 @@ var app = {
             btnNode: '.translator--btn',
             loaderNode: '.translator--loader',
 
-            activeIconClass: 'translator--icon-active',
-            textClass: 'translator--text',
-            errorClass: 'translator--error'
+            classes: {
+                activeIcon: 'translator--icon-active',
+                text: 'answer--text',
+                error: 'answer--error',
+                buttonWrapper: 'answer--btn',
+                button: 'btn',
+                answer: 'answer',
+            },
         });
         translator.init();
     },

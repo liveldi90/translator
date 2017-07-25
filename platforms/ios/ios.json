@@ -9,19 +9,19 @@
                 "parents": {
                     "/*": [
                         {
-                            "xml": "<feature name=\"File\"><param name=\"ios-package\" value=\"CDVFile\" /><param name=\"onload\" value=\"true\" /></feature>",
-                            "count": 1
-                        },
-                        {
-                            "xml": "<feature name=\"Media\"><param name=\"ios-package\" value=\"CDVSound\" /></feature>",
-                            "count": 1
-                        },
-                        {
                             "xml": "<feature name=\"SpeechRecognition\"><param name=\"ios-package\" value=\"SpeechRecognition\" /></feature>",
                             "count": 1
                         },
                         {
                             "xml": "<feature name=\"TTS\"><param name=\"ios-package\" value=\"CDVTTS\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"File\"><param name=\"ios-package\" value=\"CDVFile\" /><param name=\"onload\" value=\"true\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"Media\"><param name=\"ios-package\" value=\"CDVSound\" /></feature>",
                             "count": 1
                         }
                     ]
@@ -31,11 +31,11 @@
                 "parents": {
                     "NSMicrophoneUsageDescription": [
                         {
-                            "xml": "<string> </string>",
+                            "xml": "<string>Request to use Microphone</string>",
                             "count": 1
                         },
                         {
-                            "xml": "<string>Request to use Microphone</string>",
+                            "xml": "<string> </string>",
                             "count": 1
                         }
                     ],
@@ -50,31 +50,48 @@
         }
     },
     "installed_plugins": {
+        "cordova-plugin-speechrecognition": {
+            "PACKAGE_NAME": "com.example.hello.translator"
+        },
+        "cordova-plugin-tts": {
+            "PACKAGE_NAME": "com.example.hello.translator"
+        },
         "cordova-plugin-compat": {
-            "PACKAGE_NAME": "com.example.hello.foo"
+            "PACKAGE_NAME": "com.example.hello.translator"
         },
         "cordova-plugin-file": {
-            "PACKAGE_NAME": "com.example.hello.foo"
+            "PACKAGE_NAME": "com.example.hello.translator"
         },
         "cordova-plugin-media": {
             "MICROPHONE_USAGE_DESCRIPTION": " ",
-            "PACKAGE_NAME": "com.example.hello.foo"
-        },
-        "cordova-plugin-speechrecognition": {
-            "PACKAGE_NAME": "com.example.hello.foo"
-        },
-        "cordova-plugin-tts": {
-            "PACKAGE_NAME": "com.example.hello.foo"
-        },
-        "cordova-plugin-whitelist": {
-            "PACKAGE_NAME": "com.example.hello.foo"
+            "PACKAGE_NAME": "com.example.hello.translator"
         },
         "ro.martinescu.audio": {
-            "PACKAGE_NAME": "com.example.hello.foo"
+            "MICROPHONE_USAGE_DESCRIPTION": " ",
+            "PACKAGE_NAME": "com.example.hello.translator"
+        },
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "com.example.hello.translator"
         }
     },
     "dependent_plugins": {},
     "modules": [
+        {
+            "id": "cordova-plugin-speechrecognition.SpeechRecognition",
+            "file": "plugins/cordova-plugin-speechrecognition/www/speechRecognition.js",
+            "pluginId": "cordova-plugin-speechrecognition",
+            "merges": [
+                "window.plugins.speechRecognition"
+            ]
+        },
+        {
+            "id": "cordova-plugin-tts.tts",
+            "file": "plugins/cordova-plugin-tts/www/tts.js",
+            "pluginId": "cordova-plugin-tts",
+            "clobbers": [
+                "TTS"
+            ]
+        },
         {
             "id": "cordova-plugin-file.DirectoryEntry",
             "file": "plugins/cordova-plugin-file/www/DirectoryEntry.js",
@@ -263,31 +280,15 @@
             "clobbers": [
                 "window.Media"
             ]
-        },
-        {
-            "id": "cordova-plugin-speechrecognition.SpeechRecognition",
-            "file": "plugins/cordova-plugin-speechrecognition/www/speechRecognition.js",
-            "pluginId": "cordova-plugin-speechrecognition",
-            "merges": [
-                "window.plugins.speechRecognition"
-            ]
-        },
-        {
-            "id": "cordova-plugin-tts.tts",
-            "file": "plugins/cordova-plugin-tts/www/tts.js",
-            "pluginId": "cordova-plugin-tts",
-            "clobbers": [
-                "TTS"
-            ]
         }
     ],
     "plugin_metadata": {
+        "cordova-plugin-speechrecognition": "1.1.2",
+        "cordova-plugin-tts": "0.2.3",
         "cordova-plugin-compat": "1.1.0",
         "cordova-plugin-file": "4.3.3",
         "cordova-plugin-media": "3.0.1",
-        "cordova-plugin-speechrecognition": "1.1.2",
-        "cordova-plugin-tts": "0.2.3",
-        "cordova-plugin-whitelist": "1.3.2",
-        "ro.martinescu.audio": "0.1.0"
+        "ro.martinescu.audio": "0.1.0",
+        "cordova-plugin-whitelist": "1.3.2"
     }
 }

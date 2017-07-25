@@ -1,5 +1,5 @@
 {
-  "_from": "cordova-plugin-compat@^1.1.0",
+  "_from": "cordova-plugin-compat@^1.0.0",
   "_id": "cordova-plugin-compat@1.1.0",
   "_inBundle": false,
   "_integrity": "sha1-kr3xaf62EgUyPcyWo/+DSON+h/w=",
@@ -8,12 +8,12 @@
   "_requested": {
     "type": "range",
     "registry": true,
-    "raw": "cordova-plugin-compat@^1.1.0",
+    "raw": "cordova-plugin-compat@^1.0.0",
     "name": "cordova-plugin-compat",
     "escapedName": "cordova-plugin-compat",
-    "rawSpec": "^1.1.0",
+    "rawSpec": "^1.0.0",
     "saveSpec": null,
-    "fetchSpec": "^1.1.0"
+    "fetchSpec": "^1.0.0"
   },
   "_requiredBy": [
     "#USER",
@@ -21,7 +21,7 @@
   ],
   "_resolved": "https://registry.npmjs.org/cordova-plugin-compat/-/cordova-plugin-compat-1.1.0.tgz",
   "_shasum": "92bdf169feb61205323dcc96a3ff8348e37e87fc",
-  "_spec": "cordova-plugin-compat@^1.1.0",
+  "_spec": "cordova-plugin-compat@^1.0.0",
   "_where": "/Users/liveldi/Documents/mobilization/hello/node_modules",
   "author": {
     "name": "Apache Software Foundation"
