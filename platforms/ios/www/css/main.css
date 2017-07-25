@@ -63,3 +63,19 @@ body {
     border-top: 0.3em solid #fff;
     border-radius: 0 0 1.5em 1.5em;
   }
+
+/**
+ * Hints
+ */
+.hint {
+  font-size: 0.8rem;
+  position: absolute;
+  bottom: 1rem;
+  left: 1rem;
+  right: 1rem;
+  text-align: center;
+}
+  .hint--link,
+  .hint--link:visited {
+    color: #444343;
+  }

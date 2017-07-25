@@ -1,6 +1,6 @@
 var speechRecognition = {
     /**
-     * [requestPermission wrapper by requestPermission]
+     * [requestPermission wrapper for requestPermission]
      * @return {Promise}
      */
     requestPermission: function () {
@@ -10,7 +10,7 @@ var speechRecognition = {
     },
 
     /**
-     * [hasPermission wrapper by hasPermission]
+     * [hasPermission wrapper for hasPermission]
      * @return {Promise}
      */
     hasPermission: function () {
@@ -20,7 +20,7 @@ var speechRecognition = {
     },
 
     /**
-     * [startListening wrapper by startListening]
+     * [startListening wrapper for startListening]
      * @return {Promise}
      */
     startListening: function (ops) {
@@ -36,7 +36,7 @@ var speechRecognition = {
     },
 
     /**
-     * [stopListening wrapper by stopListening]
+     * [stopListening wrapper for stopListening]
      * @return {Promise}
      */
     stopListening: function () {
