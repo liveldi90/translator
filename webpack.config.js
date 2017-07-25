@@ -23,6 +23,10 @@ module.exports = {
       {
         test: /.json$/, loader: 'json-loader',
       },
+      {
+        test: /\.(png|woff|woff2|jpg|eot|ttf|svg|gif)$/,
+        loader: 'url-loader?limit=10000',
+      },
     ],
   },
 

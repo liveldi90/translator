@@ -40,4 +40,5 @@
     <access origin="https://asr.yandex.net" />
     <allow-intent href="market:*" />
     <preference name="loglevel" value="DEBUG" />
+    <preference name="Orientation" value="portrait" />
 </widget>

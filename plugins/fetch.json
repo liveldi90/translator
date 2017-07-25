@@ -50,7 +50,7 @@
     "cordova-plugin-tts": {
         "source": {
             "type": "registry",
-            "id": "cordova-plugin-tts"
+            "id": "cordova-plugin-tts@^0.2.3"
         },
         "is_top_level": true,
         "variables": {}

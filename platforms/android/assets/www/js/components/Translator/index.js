@@ -1,19 +1,19 @@
 import speechRecognition from '_utils/speechRecognition';
 import api from '_utils/api';
 import detectionOS from '_utils/detectionOS';
+import speak from '_utils/speak';
 
 import './style.css';
+
 var isIOS = detectionOS() === 'iOS';
 
 export default function Translator(ops) {
     this.parentNode = document.querySelector(ops.parentNode);
     this.iconNode = this.parentNode.querySelector(ops.iconNode);
     this.btnNode = this.parentNode.querySelector(ops.btnNode);
-    this.loaderNode = document.querySelector(ops.loaderNode)
+    this.loaderNode = this.parentNode.querySelector(ops.loaderNode)
 
-    this.activeIconClass = ops.activeIconClass;
-    this.textClass = ops.textClass;
-    this.errorClass = ops.errorClass;
+    this.classes = ops.classes;
 }
 
 Translator.prototype = Object.assign(Translator.prototype, {
@@ -23,6 +23,7 @@ Translator.prototype = Object.assign(Translator.prototype, {
 
         this.stop = this.stop.bind(this);
         this.start = this.start.bind(this);
+        this.speak = this.speak.bind(this);
         this.startIOS = this.startIOS.bind(this);
         this.showAnswerInModal = this.showAnswerInModal.bind(this);
         this.showErrorInModal = this.showErrorInModal.bind(this);
@@ -33,6 +34,7 @@ Translator.prototype = Object.assign(Translator.prototype, {
 
     events: function () {
         speechRecognition.requestPermission();
+
         var start = isIOS ? this.startIOS : this.start;
         this.btnNode.addEventListener('click', start);
     },
@@ -50,16 +52,16 @@ Translator.prototype = Object.assign(Translator.prototype, {
 
     start: function () {
         if (!isIOS) this.btnNode.disabled = true;
-        this.iconNode.classList.add(this.activeIconClass);
+        this.iconNode.classList.add(this.classes.activeIcon);
 
         speechRecognition.hasPermission()
             .then(speechRecognition.startListening)
             .then(this.stop)
-            .catch(this.showErrorInModal);
+            .catch(this.showErrorInModal.bind(this, 'Фраза не распознана.'));
     },
 
     stop: function (data) {
-        this.clearDOM();
+        this.clearStyles();
         this.loaderNode.style.display = 'block';
 
         api({
@@ -73,31 +75,69 @@ Translator.prototype = Object.assign(Translator.prototype, {
         .catch(this.showErrorInModal);
     },
 
-    showAnswerInModal: function (response) {
-        this.loaderNode.style.display = 'none';
-        modal.open(this.createAnswerHtml(response.text[0]));
+    speak: function (data) {
+        var btnNode = this.btnSpeakNode;
+        btnNode.disabled = true;
+
+        speak.start(data).then(function () {
+            btnNode.disabled = false;
+        }).catch(function () {
+            btnNode.disabled = false;
+        });
     },
 
-    clearDOM: function () {
+    showAnswerInModal: function (response) {
+        this.loaderNode.style.display = 'none';
+        var text = response.text[0];
+
+        modal.open(this.createAnswerHtml(text));
+    },
+
+    clearStyles: function () {
         if (isIOS) this.btnNode.innerHTML = 'Начать';
         else this.btnNode.disabled = false;
 
-        this.iconNode.classList.remove(this.activeIconClass);
-
+        this.iconNode.classList.remove(this.classes.activeIcon);
     },
 
     showErrorInModal: function (error) {
-        this.loaderNode.style.display = 'none';
-        var message = 'Ошибка. ' + error.message ? error.message : error;
+        this.clearStyles();
+        var message = error instanceof Object && error.message
+            ? error.message
+            : error;
 
-        modal.open(this.createAnswerHtml(message, true));
+        modal.open(this.createErrorHtml(message));
     },
 
-    createAnswerHtml: function (data, isError) {
+    /**
+     * [createAnswerHtml]
+     * @param  {Object}  data
+     * @return {HTML}
+     */
+    createAnswerHtml: function (data) {
+        var classes = this.classes;
+        var answer = document.createElement('div');
+
+        // container
+        answer.className = classes.answer;
+        answer.innerHTML = (
+            '<p class="' + classes.text + '">' + data + '</p>' +
+            '<div class="' + classes.buttonWrapper + '">' +
+                '<button class="' + classes.button + '">Воспроизвести</button>' +
+            '</div>'
+        );
+
+        this.btnSpeakNode = answer.querySelector('.btn');
+        this.btnSpeakNode.addEventListener('click', this.speak.bind(this, data));
+
+        return answer;
+    },
+
+    createErrorHtml: function (data) {
+        var classes = this.classes;
         var answer = document.createElement('p');
-        answer.className = isError
-            ? this.textClass + ' ' + this.errorClass
-            : this.textClass;
+
+        answer.className = classes.text + ' ' + classes.error;
         answer.innerHTML = data;
 
         return answer;

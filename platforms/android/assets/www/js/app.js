@@ -1,3 +1,6 @@
+import '_styles/reset.css';
+import '_styles/main.css';
+
 import Translator from '_components/Translator';
 import Modal from '_components/Modal';
 
@@ -13,11 +16,15 @@ var app = {
             parentNode: '.translator',
             iconNode: '.translator--icon',
             btnNode: '.translator--btn',
-            loaderNode: '.loader',
+            loaderNode: '.translator--loader',
 
-            activeIconClass: 'translator--icon-active',
-            textClass: 'translator--text',
-            errorClass: 'translator--error'
+            classes: {
+                activeIcon: 'translator--icon-active',
+                text: 'answer--text',
+                buttonWrapper: 'answer--btn',
+                button: 'btn',
+                answer: 'answer',
+            },
         });
         translator.init();
     },

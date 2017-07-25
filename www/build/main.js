@@ -535,8 +535,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__styles_reset_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__styles_reset_css__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__styles_main_css__ = __webpack_require__(7);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__styles_main_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__styles_main_css__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_Translator__ = __webpack_require__(9);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_Modal__ = __webpack_require__(22);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_Translator__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_Modal__ = __webpack_require__(24);
 
 
 
@@ -557,9 +557,13 @@ var app = {
             btnNode: '.translator--btn',
             loaderNode: '.translator--loader',
 
-            activeIconClass: 'translator--icon-active',
-            textClass: 'translator--text',
-            errorClass: 'translator--error'
+            classes: {
+                activeIcon: 'translator--icon-active',
+                text: 'answer--text',
+                buttonWrapper: 'answer--btn',
+                button: 'btn',
+                answer: 'answer',
+            },
         });
         translator.init();
     },
@@ -748,22 +752,25 @@ exports = module.exports = __webpack_require__(0)(undefined);
 
 
 // module
-exports.push([module.i, "* {\n  -webkit-tap-highlight-color: rgba(0,0,0,0);\n}\n\n/**\n * Main\n */\nbody {\n  font: 16px/1.4 Arial, serif;\n}\n\n/**\n * App\n */\n.app {\n  width: 100%;\n  height: 100vh;\n}\n\n/**\n * Buttons\n */\n.btn {\n  -webkit-appearance: none;\n  height: 5rem;\n  font-size: 1.2rem;\n  padding: 0 1rem;\n  background: #f0f0f0;\n}\n\n  .btn:disabled {\n    opacity: 0.5;\n  }\n\n/**\n *  Icons\n */\n.icon-microphone {\n  width: 2em;\n  height: 6em;\n  background: #bb1a21;\n  border-radius: 1em;\n  display: block;\n}\n\n  .icon-microphone:before{\n    content: '';\n    position: absolute;\n    bottom: -1em;\n    left: -1em;\n    width: 4em;\n    height: 0.5em;\n    background: #5c5c5c;\n  }\n\n  .icon-microphone:after{\n    content: '';\n    position: absolute;\n    bottom: -0.5em;\n    left: -0.5em;\n    right: -0.5em;\n    height: 3em;\n    border: 0.3em solid #5c5c5c;\n    border-top: 0.3em solid #fff;\n    border-radius: 0 0 1.5em 1.5em;\n  }\n", ""]);
+exports.push([module.i, "* {\n  -webkit-tap-highlight-color: rgba(0,0,0,0);\n}\n\n/**\n * Main\n */\nbody {\n  font: 16px/1.4 Arial, serif;\n}\n\n/**\n * App\n */\n.app {\n  width: 100%;\n  height: 100vh;\n}\n\n/**\n * Buttons\n */\n.btn {\n  -webkit-appearance: none;\n  padding: 1rem;\n  font-size: 1.1rem;\n  background: #f0f0f0;\n}\n\n  .btn:disabled {\n    opacity: 0.5;\n  }\n\n/**\n *  Icons\n */\n.icon-microphone {\n  width: 2em;\n  height: 6em;\n  background: #bb1a21;\n  border-radius: 1em;\n  display: block;\n}\n\n  .icon-microphone:before{\n    content: '';\n    position: absolute;\n    bottom: -1em;\n    left: -1em;\n    width: 4em;\n    height: 0.5em;\n    background: #5c5c5c;\n  }\n\n  .icon-microphone:after{\n    content: '';\n    position: absolute;\n    bottom: -0.5em;\n    left: -0.5em;\n    right: -0.5em;\n    height: 3em;\n    border: 0.3em solid #5c5c5c;\n    border-top: 0.3em solid #fff;\n    border-radius: 0 0 1.5em 1.5em;\n  }\n", ""]);
 
 // exports
 
 
 /***/ }),
-/* 9 */
+/* 9 */,
+/* 10 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (immutable) */ __webpack_exports__["a"] = Translator;
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__utils_speechRecognition__ = __webpack_require__(10);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__utils_api__ = __webpack_require__(11);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__utils_detectionOS__ = __webpack_require__(19);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__style_css__ = __webpack_require__(20);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__style_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__style_css__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__utils_speechRecognition__ = __webpack_require__(11);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__utils_api__ = __webpack_require__(12);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__utils_detectionOS__ = __webpack_require__(20);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__utils_speak__ = __webpack_require__(21);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__style_css__ = __webpack_require__(22);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__style_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__style_css__);
+
 
 
 
@@ -778,9 +785,7 @@ function Translator(ops) {
     this.btnNode = this.parentNode.querySelector(ops.btnNode);
     this.loaderNode = this.parentNode.querySelector(ops.loaderNode)
 
-    this.activeIconClass = ops.activeIconClass;
-    this.textClass = ops.textClass;
-    this.errorClass = ops.errorClass;
+    this.classes = ops.classes;
 }
 
 Translator.prototype = Object.assign(Translator.prototype, {
@@ -790,6 +795,7 @@ Translator.prototype = Object.assign(Translator.prototype, {
 
         this.stop = this.stop.bind(this);
         this.start = this.start.bind(this);
+        this.speak = this.speak.bind(this);
         this.startIOS = this.startIOS.bind(this);
         this.showAnswerInModal = this.showAnswerInModal.bind(this);
         this.showErrorInModal = this.showErrorInModal.bind(this);
@@ -818,7 +824,7 @@ Translator.prototype = Object.assign(Translator.prototype, {
 
     start: function () {
         if (!isIOS) this.btnNode.disabled = true;
-        this.iconNode.classList.add(this.activeIconClass);
+        this.iconNode.classList.add(this.classes.activeIcon);
 
         __WEBPACK_IMPORTED_MODULE_0__utils_speechRecognition__["a" /* default */].hasPermission()
             .then(__WEBPACK_IMPORTED_MODULE_0__utils_speechRecognition__["a" /* default */].startListening)
@@ -841,16 +847,29 @@ Translator.prototype = Object.assign(Translator.prototype, {
         .catch(this.showErrorInModal);
     },
 
+    speak: function (data) {
+        var btnNode = this.btnSpeakNode;
+        btnNode.disabled = true;
+
+        __WEBPACK_IMPORTED_MODULE_3__utils_speak__["a" /* default */].start(data).then(function () {
+            btnNode.disabled = false;
+        }).catch(function () {
+            btnNode.disabled = false;
+        });
+    },
+
     showAnswerInModal: function (response) {
         this.loaderNode.style.display = 'none';
-        modal.open(this.createAnswerHtml(response.text[0]));
+        var text = response.text[0];
+
+        modal.open(this.createAnswerHtml(text));
     },
 
     clearStyles: function () {
         if (isIOS) this.btnNode.innerHTML = 'Начать';
         else this.btnNode.disabled = false;
 
-        this.iconNode.classList.remove(this.activeIconClass);
+        this.iconNode.classList.remove(this.classes.activeIcon);
     },
 
     showErrorInModal: function (error) {
@@ -859,14 +878,38 @@ Translator.prototype = Object.assign(Translator.prototype, {
             ? error.message
             : error;
 
-        modal.open(this.createAnswerHtml(message, true));
+        modal.open(this.createErrorHtml(message));
     },
 
-    createAnswerHtml: function (data, isError) {
+    /**
+     * [createAnswerHtml]
+     * @param  {Object}  data
+     * @return {HTML}
+     */
+    createAnswerHtml: function (data) {
+        var classes = this.classes;
+        var answer = document.createElement('div');
+
+        // container
+        answer.className = classes.answer;
+        answer.innerHTML = (
+            '<p class="' + classes.text + '">' + data + '</p>' +
+            '<div class="' + classes.buttonWrapper + '">' +
+                '<button class="' + classes.button + '">Воспроизвести</button>' +
+            '</div>'
+        );
+
+        this.btnSpeakNode = answer.querySelector('.btn');
+        this.btnSpeakNode.addEventListener('click', this.speak.bind(this, data));
+
+        return answer;
+    },
+
+    createErrorHtml: function (data) {
+        var classes = this.classes;
         var answer = document.createElement('p');
-        answer.className = isError
-            ? this.textClass + ' ' + this.errorClass
-            : this.textClass;
+
+        answer.className = classes.text + ' ' + classes.error;
         answer.innerHTML = data;
 
         return answer;
@@ -875,7 +918,7 @@ Translator.prototype = Object.assign(Translator.prototype, {
 
 
 /***/ }),
-/* 10 */
+/* 11 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -915,12 +958,12 @@ var speechRecognition = {
 
 
 /***/ }),
-/* 11 */
+/* 12 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (immutable) */ __webpack_exports__["a"] = API;
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_xhr__ = __webpack_require__(12);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_xhr__ = __webpack_require__(13);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_xhr___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_xhr__);
 
 
@@ -948,15 +991,15 @@ function API(ops) {
 
 
 /***/ }),
-/* 12 */
+/* 13 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
-var window = __webpack_require__(13)
+var window = __webpack_require__(14)
 var isFunction = __webpack_require__(2)
-var parseHeaders = __webpack_require__(15)
-var xtend = __webpack_require__(18)
+var parseHeaders = __webpack_require__(16)
+var xtend = __webpack_require__(19)
 
 module.exports = createXHR
 createXHR.XMLHttpRequest = window.XMLHttpRequest || noop
@@ -1196,7 +1239,7 @@ function noop() {}
 
 
 /***/ }),
-/* 13 */
+/* 14 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global) {var win;
@@ -1213,10 +1256,10 @@ if (typeof window !== "undefined") {
 
 module.exports = win;
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(14)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(15)))
 
 /***/ }),
-/* 14 */
+/* 15 */
 /***/ (function(module, exports) {
 
 var g;
@@ -1243,11 +1286,11 @@ module.exports = g;
 
 
 /***/ }),
-/* 15 */
+/* 16 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var trim = __webpack_require__(16)
-  , forEach = __webpack_require__(17)
+var trim = __webpack_require__(17)
+  , forEach = __webpack_require__(18)
   , isArray = function(arg) {
       return Object.prototype.toString.call(arg) === '[object Array]';
     }
@@ -1279,7 +1322,7 @@ module.exports = function (headers) {
 }
 
 /***/ }),
-/* 16 */
+/* 17 */
 /***/ (function(module, exports) {
 
 
@@ -1299,7 +1342,7 @@ exports.right = function(str){
 
 
 /***/ }),
-/* 17 */
+/* 18 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var isFunction = __webpack_require__(2)
@@ -1351,7 +1394,7 @@ function forEachObject(object, iterator, context) {
 
 
 /***/ }),
-/* 18 */
+/* 19 */
 /***/ (function(module, exports) {
 
 module.exports = extend
@@ -1376,7 +1419,7 @@ function extend() {
 
 
 /***/ }),
-/* 19 */
+/* 20 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1398,13 +1441,29 @@ function getMobileOperatingSystem() {
 
 
 /***/ }),
-/* 20 */
+/* 21 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+var speak = {
+    start: function (text) {
+        return new Promise(function (resolve, reject) {
+            TTS.speak(text, resolve, reject);
+        });
+    },
+};
+
+/* harmony default export */ __webpack_exports__["a"] = (speak);
+
+
+/***/ }),
+/* 22 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(21);
+var content = __webpack_require__(23);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -1429,7 +1488,7 @@ if(false) {
 }
 
 /***/ }),
-/* 21 */
+/* 23 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(0)(undefined);
@@ -1437,18 +1496,18 @@ exports = module.exports = __webpack_require__(0)(undefined);
 
 
 // module
-exports.push([module.i, "/**\n * Speech\n */\n.translator {}\n\n  .translator--icon {\n    position: absolute;\n    top: 42%;\n    left: 50%;\n    transform: translate(-50%, -50%);\n    font-size: 2rem;\n    opacity: 0.5;\n  }\n\n    .translator--icon-active {\n      animation-name: translatorIcon;\n      animation-duration: 1s;\n      animation-iteration-count: infinite;\n    }\n\n  .translator--btn {\n    position: absolute;\n    bottom: 5rem;\n    left: 50%;\n    transform: translateX(-50%);\n  }\n\n  .translator--link {\n    border-bottom: 1px solid;\n  }\n\n  .translator--text {\n    font-size: 1.4rem;\n  }\n\n  .translator--error {\n    color: red;\n  }\n\n  .translator--dictionary {\n    position: absolute;\n    top: 1rem;\n    right: 1rem;\n  }\n\n/**\n * Loader\n */\n.translator--loader {\n  position: fixed;\n  top: 0;\n  left: 0;\n  bottom: 0;\n  right: 0;\n  background: rgba(0, 0, 0, 0.5);\n  z-index: 99;\n  display: none;\n}\n\n  .translator--loader-icon {\n    margin: -0.75rem 0 0 -0.75rem;\n    font-size: 2rem;\n    width: 1.5rem;\n    height: 1.5rem;\n    border-radius: 50%;\n    position: absolute;\n    top: 50%;\n    left: 50%;\n    text-indent: -9999em;\n    animation: load5 1.1s infinite ease;\n    transform: translateZ(0);\n  }\n\n@keyframes load5 {\n  0%,\n  100% { box-shadow: 0em -2.6em 0em 0em #ffffff, 1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2), 2.5em 0em 0 0em rgba(255, 255, 255, 0.2), 1.75em 1.75em 0 0em rgba(255, 255, 255, 0.2), 0em 2.5em 0 0em rgba(255, 255, 255, 0.2), -1.8em 1.8em 0 0em rgba(255, 255, 255, 0.2), -2.6em 0em 0 0em rgba(255, 255, 255, 0.5), -1.8em -1.8em 0 0em rgba(255, 255, 255, 0.7); }\n  12.5% { box-shadow: 0em -2.6em 0em 0em rgba(255, 255, 255, 0.7), 1.8em -1.8em 0 0em #ffffff, 2.5em 0em 0 0em rgba(255, 255, 255, 0.2), 1.75em 1.75em 0 0em rgba(255, 255, 255, 0.2), 0em 2.5em 0 0em rgba(255, 255, 255, 0.2), -1.8em 1.8em 0 0em rgba(255, 255, 255, 0.2), -2.6em 0em 0 0em rgba(255, 255, 255, 0.2), -1.8em -1.8em 0 0em rgba(255, 255, 255, 0.5); }\n  25% { box-shadow: 0em -2.6em 0em 0em rgba(255, 255, 255, 0.5), 1.8em -1.8em 0 0em rgba(255, 255, 255, 0.7), 2.5em 0em 0 0em #ffffff, 1.75em 1.75em 0 0em rgba(255, 255, 255, 0.2), 0em 2.5em 0 0em rgba(255, 255, 255, 0.2), -1.8em 1.8em 0 0em rgba(255, 255, 255, 0.2), -2.6em 0em 0 0em rgba(255, 255, 255, 0.2), -1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2); }\n  37.5% { box-shadow: 0em -2.6em 0em 0em rgba(255, 255, 255, 0.2), 1.8em -1.8em 0 0em rgba(255, 255, 255, 0.5), 2.5em 0em 0 0em rgba(255, 255, 255, 0.7), 1.75em 1.75em 0 0em #ffffff, 0em 2.5em 0 0em rgba(255, 255, 255, 0.2), -1.8em 1.8em 0 0em rgba(255, 255, 255, 0.2), -2.6em 0em 0 0em rgba(255, 255, 255, 0.2), -1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2); }\n  50% { box-shadow: 0em -2.6em 0em 0em rgba(255, 255, 255, 0.2), 1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2), 2.5em 0em 0 0em rgba(255, 255, 255, 0.5), 1.75em 1.75em 0 0em rgba(255, 255, 255, 0.7), 0em 2.5em 0 0em #ffffff, -1.8em 1.8em 0 0em rgba(255, 255, 255, 0.2), -2.6em 0em 0 0em rgba(255, 255, 255, 0.2), -1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2); }\n  62.5% { box-shadow: 0em -2.6em 0em 0em rgba(255, 255, 255, 0.2), 1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2), 2.5em 0em 0 0em rgba(255, 255, 255, 0.2), 1.75em 1.75em 0 0em rgba(255, 255, 255, 0.5), 0em 2.5em 0 0em rgba(255, 255, 255, 0.7), -1.8em 1.8em 0 0em #ffffff, -2.6em 0em 0 0em rgba(255, 255, 255, 0.2), -1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2); }\n  75% { box-shadow: 0em -2.6em 0em 0em rgba(255, 255, 255, 0.2), 1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2), 2.5em 0em 0 0em rgba(255, 255, 255, 0.2), 1.75em 1.75em 0 0em rgba(255, 255, 255, 0.2), 0em 2.5em 0 0em rgba(255, 255, 255, 0.5), -1.8em 1.8em 0 0em rgba(255, 255, 255, 0.7), -2.6em 0em 0 0em #ffffff, -1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2); }\n  87.5% { box-shadow: 0em -2.6em 0em 0em rgba(255, 255, 255, 0.2), 1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2), 2.5em 0em 0 0em rgba(255, 255, 255, 0.2), 1.75em 1.75em 0 0em rgba(255, 255, 255, 0.2), 0em 2.5em 0 0em rgba(255, 255, 255, 0.2), -1.8em 1.8em 0 0em rgba(255, 255, 255, 0.5), -2.6em 0em 0 0em rgba(255, 255, 255, 0.7), -1.8em -1.8em 0 0em #ffffff; }\n}\n\n@keyframes translatorIcon {\n  from { opacity: 0.5; }\n  50% { opacity: 1; }\n  to { opacity: 0.5; }\n}\n", ""]);
+exports.push([module.i, "/**\n * Speech\n */\n.translator {}\n\n  .translator--icon {\n    position: absolute;\n    top: 42%;\n    left: 50%;\n    transform: translate(-50%, -50%);\n    font-size: 2rem;\n    opacity: 0.5;\n  }\n\n    .translator--icon-active {\n      animation-name: translatorIcon;\n      animation-duration: 1s;\n      animation-iteration-count: infinite;\n    }\n\n  .translator--btn {\n    position: absolute;\n    bottom: 5rem;\n    left: 50%;\n    height: 5rem;\n    font-size: 1.2rem;\n    padding: 0 1rem;\n    transform: translateX(-50%);\n  }\n\n  .translator--link {\n    border-bottom: 1px solid;\n  }\n\n  .translator--dictionary {\n    position: absolute;\n    top: 1rem;\n    right: 1rem;\n  }\n\n/**\n * Loader\n */\n.translator--loader {\n  position: fixed;\n  top: 0;\n  left: 0;\n  bottom: 0;\n  right: 0;\n  background: rgba(0, 0, 0, 0.5);\n  z-index: 99;\n  display: none;\n}\n\n  .translator--loader-icon {\n    margin: -0.75rem 0 0 -0.75rem;\n    font-size: 2rem;\n    width: 1.5rem;\n    height: 1.5rem;\n    border-radius: 50%;\n    position: absolute;\n    top: 50%;\n    left: 50%;\n    text-indent: -9999em;\n    animation: load5 1.1s infinite ease;\n    transform: translateZ(0);\n  }\n\n.answer {\n\n}\n  .answer--text {\n    font-size: 1.4rem;\n    margin-bottom: 0.5rem;\n  }\n\n  .answer--icon {\n    position: relative;\n    font-size: 0.9rem;\n  }\n\n  .answer--error {\n    color: red;\n  }\n\n  .answer--btn {\n    text-align: center;\n  }\n\n@keyframes load5 {\n  0%,\n  100% { box-shadow: 0em -2.6em 0em 0em #ffffff, 1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2), 2.5em 0em 0 0em rgba(255, 255, 255, 0.2), 1.75em 1.75em 0 0em rgba(255, 255, 255, 0.2), 0em 2.5em 0 0em rgba(255, 255, 255, 0.2), -1.8em 1.8em 0 0em rgba(255, 255, 255, 0.2), -2.6em 0em 0 0em rgba(255, 255, 255, 0.5), -1.8em -1.8em 0 0em rgba(255, 255, 255, 0.7); }\n  12.5% { box-shadow: 0em -2.6em 0em 0em rgba(255, 255, 255, 0.7), 1.8em -1.8em 0 0em #ffffff, 2.5em 0em 0 0em rgba(255, 255, 255, 0.2), 1.75em 1.75em 0 0em rgba(255, 255, 255, 0.2), 0em 2.5em 0 0em rgba(255, 255, 255, 0.2), -1.8em 1.8em 0 0em rgba(255, 255, 255, 0.2), -2.6em 0em 0 0em rgba(255, 255, 255, 0.2), -1.8em -1.8em 0 0em rgba(255, 255, 255, 0.5); }\n  25% { box-shadow: 0em -2.6em 0em 0em rgba(255, 255, 255, 0.5), 1.8em -1.8em 0 0em rgba(255, 255, 255, 0.7), 2.5em 0em 0 0em #ffffff, 1.75em 1.75em 0 0em rgba(255, 255, 255, 0.2), 0em 2.5em 0 0em rgba(255, 255, 255, 0.2), -1.8em 1.8em 0 0em rgba(255, 255, 255, 0.2), -2.6em 0em 0 0em rgba(255, 255, 255, 0.2), -1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2); }\n  37.5% { box-shadow: 0em -2.6em 0em 0em rgba(255, 255, 255, 0.2), 1.8em -1.8em 0 0em rgba(255, 255, 255, 0.5), 2.5em 0em 0 0em rgba(255, 255, 255, 0.7), 1.75em 1.75em 0 0em #ffffff, 0em 2.5em 0 0em rgba(255, 255, 255, 0.2), -1.8em 1.8em 0 0em rgba(255, 255, 255, 0.2), -2.6em 0em 0 0em rgba(255, 255, 255, 0.2), -1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2); }\n  50% { box-shadow: 0em -2.6em 0em 0em rgba(255, 255, 255, 0.2), 1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2), 2.5em 0em 0 0em rgba(255, 255, 255, 0.5), 1.75em 1.75em 0 0em rgba(255, 255, 255, 0.7), 0em 2.5em 0 0em #ffffff, -1.8em 1.8em 0 0em rgba(255, 255, 255, 0.2), -2.6em 0em 0 0em rgba(255, 255, 255, 0.2), -1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2); }\n  62.5% { box-shadow: 0em -2.6em 0em 0em rgba(255, 255, 255, 0.2), 1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2), 2.5em 0em 0 0em rgba(255, 255, 255, 0.2), 1.75em 1.75em 0 0em rgba(255, 255, 255, 0.5), 0em 2.5em 0 0em rgba(255, 255, 255, 0.7), -1.8em 1.8em 0 0em #ffffff, -2.6em 0em 0 0em rgba(255, 255, 255, 0.2), -1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2); }\n  75% { box-shadow: 0em -2.6em 0em 0em rgba(255, 255, 255, 0.2), 1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2), 2.5em 0em 0 0em rgba(255, 255, 255, 0.2), 1.75em 1.75em 0 0em rgba(255, 255, 255, 0.2), 0em 2.5em 0 0em rgba(255, 255, 255, 0.5), -1.8em 1.8em 0 0em rgba(255, 255, 255, 0.7), -2.6em 0em 0 0em #ffffff, -1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2); }\n  87.5% { box-shadow: 0em -2.6em 0em 0em rgba(255, 255, 255, 0.2), 1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2), 2.5em 0em 0 0em rgba(255, 255, 255, 0.2), 1.75em 1.75em 0 0em rgba(255, 255, 255, 0.2), 0em 2.5em 0 0em rgba(255, 255, 255, 0.2), -1.8em 1.8em 0 0em rgba(255, 255, 255, 0.5), -2.6em 0em 0 0em rgba(255, 255, 255, 0.7), -1.8em -1.8em 0 0em #ffffff; }\n}\n\n@keyframes translatorIcon {\n  from { opacity: 0.5; }\n  50% { opacity: 1; }\n  to { opacity: 0.5; }\n}\n", ""]);
 
 // exports
 
 
 /***/ }),
-/* 22 */
+/* 24 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (immutable) */ __webpack_exports__["a"] = Modal;
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__style_css__ = __webpack_require__(23);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__style_css__ = __webpack_require__(25);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__style_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__style_css__);
 
 
@@ -1502,13 +1561,13 @@ Modal.prototype = Object.assign(Modal.prototype, {
 
 
 /***/ }),
-/* 23 */
+/* 25 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(24);
+var content = __webpack_require__(26);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -1533,7 +1592,7 @@ if(false) {
 }
 
 /***/ }),
-/* 24 */
+/* 26 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(0)(undefined);
