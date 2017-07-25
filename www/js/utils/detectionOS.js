@@ -1,3 +1,7 @@
+/**
+ * [getMobileOperatingSystem detected Android or IOS]
+ * @return {String} [type device]
+ */
 export default function getMobileOperatingSystem() {
   var userAgent = navigator.userAgent || navigator.vendor || window.opera;
 

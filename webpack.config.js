@@ -7,7 +7,7 @@ module.exports = {
 
   output: {
     path: path.resolve('www/build/'),
-    filename: "main.js",
+    filename: 'main.js',
   },
 
   module: {
@@ -15,22 +15,19 @@ module.exports = {
       {
         test: /\.css$/,
         loader: [ 'style-loader', 'css-loader' ],
-        // loader: ExtractTextPlugin.extract({
-        //   fallback: 'style-loader',
-        //   use: [ 'css-loader', 'postcss-loader' ],
-        // })
+        loader: ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          use: [ 'css-loader', 'postcss-loader' ],
+        })
       },
       {
         test: /.json$/, loader: 'json-loader',
-      },
-      {
-        test: /\.(png|woff|woff2|jpg|eot|ttf|svg|gif)$/,
-        loader: 'url-loader?limit=10000',
-      },
+      }
     ],
   },
 
   plugins: [
+    new ExtractTextPlugin('styles.css'),
   ],
 
   resolve: {

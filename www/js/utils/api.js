@@ -1,5 +1,9 @@
 import xhr from 'xhr';
 
+/**
+ * [API you can send request]
+ * @param {Any} ops [what are you want to send]
+ */
 export default function API(ops) {
   const sendObj = {
     body: ops.data ? JSON.stringify(ops.data) : '',

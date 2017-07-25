@@ -7,6 +7,11 @@ import './style.css';
 
 var isIOS = detectionOS() === 'iOS';
 
+/**
+ * [Translator create a translator, when you can click by a button and give English translate.
+ * also you can pronounce english translate.]
+ * @param {Object} ops { parentNode, iconNode, btnNode, loaderNode, classes }
+ */
 export default function Translator(ops) {
     this.parentNode = document.querySelector(ops.parentNode);
     this.iconNode = this.parentNode.querySelector(ops.iconNode);
@@ -17,6 +22,9 @@ export default function Translator(ops) {
 }
 
 Translator.prototype = Object.assign(Translator.prototype, {
+    /**
+     * [init Translator]
+     */
     init: function () {
         if (this.parentNode.dataset.initedTranslator) return;
         this.parentNode.dataset.initedTranslator = true;
@@ -32,6 +40,9 @@ Translator.prototype = Object.assign(Translator.prototype, {
         this.events();
     },
 
+    /**
+     * [events init all eventh]
+     */
     events: function () {
         speechRecognition.requestPermission();
 
@@ -39,6 +50,10 @@ Translator.prototype = Object.assign(Translator.prototype, {
         this.btnNode.addEventListener('click', start);
     },
 
+    /**
+     * [startIOS for ios start have some difference]
+     * @return {[type]} [description]
+     */
     startIOS: function () {
         if (this.isSpeechStarted) {
             speechRecognition.stopListening();
@@ -50,6 +65,9 @@ Translator.prototype = Object.assign(Translator.prototype, {
         }
     },
 
+    /**
+     * [start common start]
+     */
     start: function () {
         if (!isIOS) this.btnNode.disabled = true;
         this.iconNode.classList.add(this.classes.activeIcon);
@@ -60,6 +78,10 @@ Translator.prototype = Object.assign(Translator.prototype, {
             .catch(this.showErrorInModal.bind(this, 'Фраза не распознана.'));
     },
 
+    /**
+     * [stop stop speaking and catch errors]
+     * @param  {Array} data [Array of translated. The first element is more relevant.]
+     */
     stop: function (data) {
         this.clearStyles();
         this.loaderNode.style.display = 'block';
@@ -75,6 +97,10 @@ Translator.prototype = Object.assign(Translator.prototype, {
         .catch(this.showErrorInModal);
     },
 
+    /**
+     * [speak speak text in data]
+     * @param  {String} data
+     */
     speak: function (data) {
         var btnNode = this.btnSpeakNode;
         btnNode.disabled = true;
@@ -86,6 +112,11 @@ Translator.prototype = Object.assign(Translator.prototype, {
         });
     },
 
+    /**
+     * [showAnswerInModal description]
+     * @param  {[type]} response [description]
+     * @return {[type]}          [description]
+     */
     showAnswerInModal: function (response) {
         this.loaderNode.style.display = 'none';
         var text = response.text[0];
@@ -93,6 +124,9 @@ Translator.prototype = Object.assign(Translator.prototype, {
         modal.open(this.createAnswerHtml(text));
     },
 
+    /**
+     * [clearStyles remove added styles when start speaking]
+     */
     clearStyles: function () {
         if (isIOS) this.btnNode.innerHTML = 'Начать';
         else this.btnNode.disabled = false;
@@ -100,6 +134,9 @@ Translator.prototype = Object.assign(Translator.prototype, {
         this.iconNode.classList.remove(this.classes.activeIcon);
     },
 
+    /**
+     * [showErrorInModal show catched errors]
+     */
     showErrorInModal: function (error) {
         this.clearStyles();
         var message = error instanceof Object && error.message
@@ -133,6 +170,10 @@ Translator.prototype = Object.assign(Translator.prototype, {
         return answer;
     },
 
+    /**
+     * [createErrorHtml create modal with error]
+     * @param  {String} data [text of error]
+     */
     createErrorHtml: function (data) {
         var classes = this.classes;
         var answer = document.createElement('p');
